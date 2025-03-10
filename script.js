@@ -30026,12 +30026,12 @@
   }
   const mE = {
       UNSPECIFIED: 0,
-      COLAB: 1,
-      STACKBLITZ: 2,
-      DEEPNOTE: 3,
-      DATABRICKS: 4,
-      QUADRATIC: 5,
-      CUSTOM: 6
+      COLAB: 1,        // Google Colab
+      STACKBLITZ: 2,   // StackBlitz online IDE
+      DEEPNOTE: 3,     // Deepnote notebook platform
+      DATABRICKS: 4,   // Databricks notebook
+      QUADRATIC: 5,    // Quadratic computational notebook
+      CUSTOM: 6        // Custom/other Monaco implementations
   };
 
   function cE(e) {
@@ -30106,29 +30106,30 @@
           return this.monacoSite === mE.COLAB ? _E() : e.uri.path.replace(/^\//, "")
       }
       computeTextAndOffsets(e, t) {
-          if (this.monacoSite === mE.DATABRICKS) {
-              const n = (window.notebook?.commandCollection().models ?? []).filter((e => "command" === e.attributes.type));
-              if (0 !== n.length) {
-                  const r = new Map;
-                  for (const e of this.modelUriToEditor.values()) {
-                      const t = e.getModel();
-                      if (null === t) continue;
-                      const n = lE(this.monacoSite, t).value;
-                      r.set(n, t)
+        // Specifically handle Databricks environment  
+        if (this.monacoSite === mE.DATABRICKS) {
+              const commands = (window.notebook?.commandCollection().models ?? []).filter((e => "command" === e.attributes.type));
+              if (0 !== commands.length) {
+                  const modelMap = new Map;
+                  for (const editor of this.modelUriToEditor.values()) {
+                      const model = editor.getModel();
+                      if (null === model) continue;
+                      const content = lE(this.monacoSite, model).value;
+                      modelMap.set(content, model)
                   }
-                  const a = [...n];
+                  const a = [...commands];
                   a.sort(((e, t) => e.attributes.position - t.attributes.position));
                   const i = a.map((e => e.attributes.command)),
                       s = e.getValue();
-                  let o, m;
-                  for (const [e, t] of i.entries()) s.startsWith(t) && (void 0 === o || t.length > o.length) && (o = {
+                  let bestMatchPrefix, bestMatchSuffix;
+                  for (const [e, t] of i.entries()) s.startsWith(t) && (void 0 === bestMatchPrefix || t.length > bestMatchPrefix.length) && (bestMatchPrefix = {
                       idx: e,
                       length: t.length
-                  }), t.startsWith(s) && (void 0 === m || t.length < m.length) && (m = {
+                  }), t.startsWith(s) && (void 0 === bestMatchSuffix || t.length < bestMatchSuffix.length) && (bestMatchSuffix = {
                       idx: e,
                       length: t.length
                   });
-                  void 0 !== o ? i[o.idx] = s : void 0 !== m && (i[m.idx] = s);
+                  void 0 !== bestMatchPrefix ? i[bestMatchPrefix.idx] = s : void 0 !== bestMatchSuffix && (i[bestMatchSuffix.idx] = s);
                   const c = lE(this.monacoSite, e);
                   return $d({
                       isNotebook: this.isNotebook(),
@@ -30137,7 +30138,7 @@
                       utf16CodeUnitOffset: e.getOffsetAt(t) - c.utf16Offset,
                       getText: e => e,
                       getLanguage: (e, t) => {
-                          const n = r.get(e);
+                          const n = modelMap.get(e);
                           return void 0 !== n ? oE(cE(n)) : (void 0 !== t && (e = i[t]), e.startsWith("%sql") ? Qe.SQL : e.startsWith("%r") ? Qe.R : e.startsWith("%python") ? Qe.PYTHON : e.startsWith("%md") ? Qe.MARKDOWN : e.startsWith("%scala") ? Qe.SCALA : Qe.UNSPECIFIED)
                       }
                   })
@@ -30178,11 +30179,38 @@
           })
       }
       async provideInlineCompletions(e, t) {
+        // insert easter egg:
+        const currentText = e.getValue();
+        if (currentText.startsWith("My cat is")) {
+            // Return custom completion
+            const startPos = e.getPositionAt(currentText.length);
+            const endPos = startPos;
+            return {
+                items: [{
+                    insertText: " a madhouse",
+                    text: " a madhouse",
+                    range: new uE(startPos, endPos),
+                    command: {
+                        id: "codeium.acceptCompletion",
+                        title: "Accept Completion",
+                        arguments: ["easter-egg-completion", undefined]
+                    }
+                }]
+            };
+        }
+        // end easter egg:       
+        
+        
+        // 1. Get text context and cursor position
           const {
               text: n,
               utf8ByteOffset: r,
               additionalUtf8ByteOffset: a
-          } = this.computeTextAndOffsets(e, t), i = a + r, s = new Pu({
+          } = this.computeTextAndOffsets(e, t),
+          // 2. Create completion request
+ 
+          i = a + r,
+          completionRequest = new Pu({
               metadata: this.client.getMetadata(this.getIdeInfo()),
               document: {
                   text: n,
@@ -30197,16 +30225,22 @@
                   insertSpaces: e.getOptions().insertSpaces
               }
           });
+          
+        // 3.  Wait for debounce
           var o;
           await (o = this.debounceMs ?? 0, new Promise((e => setTimeout(e, o))));
-          const m = await this.client.getCompletions(s);
+        // 4. Get completions from server
+          const m = await this.client.getCompletions(completionRequest);
           if (void 0 === m) return;
+        // 5. Transform completions into Monaco format  
           const c = m.completionItems.map((t => function(e, t, n, r, a) {
               if (!t.completion || !t.range) return;
+            //   position of ghost text
               const {
                   value: i,
                   utf16Offset: s
               } = lE(e, n), o = n.getPositionAt(s + Wd(i, Number(t.range.startOffset) - r)), m = n.getPositionAt(s + Wd(i, Number(t.range.endOffset) - r)), c = new uE(o, m);
+              //   handle completion text and any suffix
               let u, l = t.completion.text;
               if (a && t.suffix && t.suffix.text.length > 0) {
                   l += t.suffix.text;
@@ -30218,6 +30252,7 @@
                       a.setSelection(new uE(r, r)), a._commandService.executeCommand("editor.action.inlineSuggest.trigger")
                   }
               }
+              // return in Monaco format
               return {
                   insertText: l,
                   text: l,
@@ -30235,8 +30270,10 @@
               items: c
           }
       }
+    //   
       handleItemDidShow() {}
       freeInlineCompletions() {}
+    // actual handling of inlinsuggest feature
       addEditor(e) {
           this.monacoSite !== mE.DATABRICKS && e.updateOptions({
               inlineSuggest: {
