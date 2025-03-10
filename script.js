@@ -30093,11 +30093,11 @@
       }
       relativePath() {
           if (this.monacoSite === mE.COLAB) return _E();
-          const e = window.location.href;
-          return this.monacoSite === mE.DEEPNOTE || this.monacoSite === mE.DATABRICKS ? function(e) {
-              const t = e.split("/").pop();
-              if (void 0 !== t) return `${t}.ipynb`
-          }(e) : void 0
+          const currentUrl = window.location.href;
+          return this.monacoSite === mE.DEEPNOTE || this.monacoSite === mE.DATABRICKS ? function(url) {
+              const filename = url.split("/").pop();
+              if (void 0 !== filename) return `${filename}.ipynb`
+          }(currentUrl) : void 0
       }
       isNotebook() {
           return mE.COLAB === this.monacoSite || mE.DATABRICKS === this.monacoSite || mE.DEEPNOTE === this.monacoSite
