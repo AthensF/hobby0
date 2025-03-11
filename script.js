@@ -29482,7 +29482,7 @@
       return n
   }
 
-  function Wd(e, t) {
+  function calculateTextWidth(e, t) {
       if (0 === t) return 0;
       let n = 0,
           r = 0;
@@ -29604,8 +29604,8 @@
                   textMarkers: [],
                   disposables: r(),
                   doc: e,
-                  start: e.posFromIndex(Wd(e.getValue(), a)),
-                  end: e.posFromIndex(Wd(e.getValue(), i)),
+                  start: e.posFromIndex(calculateTextWidth(e.getValue(), a)),
+                  end: e.posFromIndex(calculateTextWidth(e.getValue(), i)),
                   docState: e.getValue()
               },
               o = e.getCursor();
@@ -29615,7 +29615,7 @@
                       const r = document.createElement("span");
                       r.classList.add("codeium-ghost"), r.innerText = t.text;
                       const a = Number(t.offset) - n,
-                          i = Wd(e.getValue(), a),
+                          i = calculateTextWidth(e.getValue(), a),
                           c = e.posFromIndex(i),
                           u = e.setBookmark(c, {
                               widget: r,
@@ -29784,13 +29784,14 @@
           })))
       }
   }
-  class eE {
-      constructor(e, t, n) {
-          this.jupyter = t, this.codeMirrorManager = new Qd(e, {
+  class JupyterCodeCompletionIntegration {
+      constructor(config, jupyterInstance, keybindingConfig) {
+          this.jupyter = jupyterInstance, this.codeMirrorManager = new Qd(config, {
               ideName: "jupyter_notebook",
-              ideVersion: t.version
-          }), this.keybindings = n
+              ideVersion: jupyterInstance.version
+          }), this.keybindings = keybindingConfig
       }
+      //overrides default key event handlers in Jupyter Notebooks to add code completion functionality
       patchCellKeyEvent(e) {
           const t = (e, t) => this.codeMirrorManager.beforeMainKeyHandler(e, t, {
                   tab: !0,
@@ -29838,6 +29839,8 @@
               };
           this.jupyter.CodeCell.prototype.handle_codemirror_keyevent = n(this.jupyter.CodeCell.prototype.handle_codemirror_keyevent), this.jupyter.TextCell.prototype.handle_codemirror_keyevent = n(this.jupyter.TextCell.prototype.handle_codemirror_keyevent)
       }
+      //Modifies Jupyter shortcuts to handle Exc key for clear completions
+      
       patchShortcutManagerHandler() {
           const e = this.jupyter.keyboard.ShortcutManager.prototype.call_handler,
               t = () => this.codeMirrorManager.clearCompletion("shortcut manager");
@@ -30034,16 +30037,16 @@
       CUSTOM: 6        // Custom/other Monaco implementations
   };
 
-  function cE(e) {
-      return void 0 !== e.getLanguageIdentifier ? e.getLanguageIdentifier().language : e.getLanguageId()
+  function getLanguageId(editorModel) {
+      return void 0 !== editorModel.getLanguageIdentifier ? editorModel.getLanguageIdentifier().language : editorModel.getLanguageId()
   }
-  class uE {
-      constructor(e, t) {
-          this.startLineNumber = e.lineNumber, this.startColumn = e.column, this.endLineNumber = t.lineNumber, this.endColumn = t.column
+  class TextRange {
+      constructor(startPos, endPos) {
+          this.startLineNumber = startPos.lineNumber, this.startColumn = startPos.column, this.endLineNumber = endPos.lineNumber, this.endColumn = endPos.column
       }
   }
 
-  function lE(e, t) {
+  function getEncodedEditorContent(e, t) {
       const n = "string" == typeof t ? t : t.getValue();
       if (e !== mE.DATABRICKS || !n.startsWith("%")) return {
           value: n,
@@ -30114,7 +30117,7 @@
                   for (const editor of this.modelUriToEditor.values()) {
                       const model = editor.getModel();
                       if (null === model) continue;
-                      const content = lE(this.monacoSite, model).value;
+                      const content = getEncodedEditorContent(this.monacoSite, model).value;
                       modelMap.set(content, model)
                   }
                   const a = [...commands];
@@ -30130,16 +30133,16 @@
                       length: t.length
                   });
                   void 0 !== bestMatchPrefix ? i[bestMatchPrefix.idx] = s : void 0 !== bestMatchSuffix && (i[bestMatchSuffix.idx] = s);
-                  const c = lE(this.monacoSite, e);
+                  const c = getEncodedEditorContent(this.monacoSite, e);
                   return $d({
                       isNotebook: this.isNotebook(),
-                      textModels: i.map((e => lE(this.monacoSite, e).value)),
+                      textModels: i.map((e => getEncodedEditorContent(this.monacoSite, e).value)),
                       currentTextModel: c.value,
                       utf16CodeUnitOffset: e.getOffsetAt(t) - c.utf16Offset,
                       getText: e => e,
                       getLanguage: (e, t) => {
                           const n = modelMap.get(e);
-                          return void 0 !== n ? oE(cE(n)) : (void 0 !== t && (e = i[t]), e.startsWith("%sql") ? Qe.SQL : e.startsWith("%r") ? Qe.R : e.startsWith("%python") ? Qe.PYTHON : e.startsWith("%md") ? Qe.MARKDOWN : e.startsWith("%scala") ? Qe.SCALA : Qe.UNSPECIFIED)
+                          return void 0 !== n ? oE(getLanguageId(n)) : (void 0 !== t && (e = i[t]), e.startsWith("%sql") ? Qe.SQL : e.startsWith("%r") ? Qe.R : e.startsWith("%python") ? Qe.PYTHON : e.startsWith("%md") ? Qe.MARKDOWN : e.startsWith("%scala") ? Qe.SCALA : Qe.UNSPECIFIED)
                       }
                   })
               }
@@ -30155,27 +30158,27 @@
                           const n = e.outputs.currentOutput.outputItems[0].data;
                           void 0 !== n && (void 0 !== n["text/plain"] ? t = t + "\nOUTPUT:\n" + n["text/plain"].join() : void 0 !== n["text/html"] && (t = t + "\nOUTPUT:\n" + n["text/html"].join()))
                       }
-                      a.set(t, oE(cE(e.textModel)))
+                      a.set(t, oE(getLanguageId(e.textModel)))
                   }
                   r.push(t)
               }
-              const i = lE(this.monacoSite, e);
+              const i = getEncodedEditorContent(this.monacoSite, e);
               return $d({
                   isNotebook: this.isNotebook(),
-                  textModels: r.map((e => lE(this.monacoSite, e).value)),
+                  textModels: r.map((e => getEncodedEditorContent(this.monacoSite, e).value)),
                   currentTextModel: i.value,
                   utf16CodeUnitOffset: e.getOffsetAt(t) - i.utf16Offset,
                   getText: e => e,
-                  getLanguage: e => a.get(lE(this.monacoSite, e).value) ?? Qe.UNSPECIFIED
+                  getLanguage: e => a.get(getEncodedEditorContent(this.monacoSite, e).value) ?? Qe.UNSPECIFIED
               })
           }
           return $d({
               isNotebook: this.isNotebook(),
               textModels: this.textModels(e),
               currentTextModel: e,
-              utf16CodeUnitOffset: e.getOffsetAt(t) - lE(this.monacoSite, e).utf16Offset,
-              getText: e => lE(this.monacoSite, e).value,
-              getLanguage: e => oE(cE(e))
+              utf16CodeUnitOffset: e.getOffsetAt(t) - getEncodedEditorContent(this.monacoSite, e).utf16Offset,
+              getText: e => getEncodedEditorContent(this.monacoSite, e).value,
+              getLanguage: e => oE(getLanguageId(e))
           })
       }
       async provideInlineCompletions(editor, cursorPosition) { 
@@ -30188,9 +30191,9 @@
             const endPos = startPos;
             return {
                 items: [{
-                    insertText: " a madhouse, from woofwoof",
+                    insertText: " a madhouse, from mee mee",
                     text: " a madhouse, from Atheus",
-                    range: new uE(startPos, endPos),
+                    range: new TextRange(startPos, endPos),
                     command: {
                         id: "codeium.acceptCompletion",
                         title: "Accept Completion",
@@ -30215,8 +30218,8 @@
               metadata: this.client.getMetadata(this.getIdeInfo()),
               document: {
                   text: documentText,
-                  editorLanguage: cE(editor),
-                  language: oE(cE(editor)),
+                  editorLanguage: getLanguageId(editor),
+                  language: oE(getLanguageId(editor)),
                   cursorOffset: BigInt(totalByteOffset),
                   lineEnding: "\n",
                   absoluteUri: "file:///" + this.absolutePath(editor)
@@ -30238,9 +30241,12 @@
               if (!completionItem.completion || !completionItem.range) return;
             //   position of ghost text
               const {
-                  value: i,
-                  utf16Offset: s
-              } = lE(monacoSite, editor), o = editor.getPositionAt(s + Wd(i, Number(completionItem.range.startOffset) - offset)), m = editor.getPositionAt(s + Wd(i, Number(completionItem.range.endOffset) - offset)), c = new uE(o, m);
+                  value: textValue,
+                  utf16Offset: utf160offset
+              } = getEncodedEditorContent(monacoSite, editor), 
+              startPosition = editor.getPositionAt(utf160offset + calculateTextWidth(textValue, Number(completionItem.range.startOffset) - offset)), 
+              endPosition = editor.getPositionAt(utf160offset + calculateTextWidth(textValue, Number(completionItem.range.endOffset) - offset)), 
+              completionRange = new TextRange(startPosition, endPosition);
               //   handle completion text and any suffix
               let postCompletionCallback, completionText = completionItem.completion.text;
               if (editorInstance && completionItem.suffix && completionItem.suffix.text.length > 0) {
@@ -30250,14 +30256,14 @@
                       const selection = editorInstance.getSelection();
                       if (null === selection) return void console.warn("Unexpected, no selection");
                       const newCursorPosition = editor.getPositionAt(editor.getOffsetAt(selection.getPosition()) + cursorOffset);
-                      editorInstance.setSelection(new uE(newCursorPosition, newCursorPosition)), editorInstance._commandService.executeCommand("editor.action.inlineSuggest.trigger")
+                      editorInstance.setSelection(new TextRange(newCursorPosition, newCursorPosition)), editorInstance._commandService.executeCommand("editor.action.inlineSuggest.trigger")
                   }
               }
               // return in Monaco format
               return {
                   insertText: completionText,
                   text: completionText,
-                  range: c,
+                  range: completionRange,
                   command: {
                       id: "codeium.acceptCompletion",
                       title: "Accept Completion",
@@ -30274,21 +30280,27 @@
     //   
       handleItemDidShow() {}
       freeInlineCompletions() {}
-    // actual handling of inlinsuggest feature
-      addEditor(e) {
-          this.monacoSite !== mE.DATABRICKS && e.updateOptions({
+    // actual handling of inline suggest feature
+      addEditor(editor) {
+        // Enable inline suggestions except for Databricks 
+          this.monacoSite !== mE.DATABRICKS && editor.updateOptions({
               inlineSuggest: {
                   enabled: !0
               }
           });
-          const t = e.getModel()?.uri.toString();
+          //Track editor instance by their URI
+          const editorUri = editor.getModel()?.uri.toString();
           var n;
-          void 0 !== t && this.modelUriToEditor.set(t, e), e.onDidChangeModel((t => {
-              const n = t.oldModelUrl?.toString();
-              void 0 !== n && this.modelUriToEditor.delete(n);
-              const r = t.newModelUrl?.toString();
-              void 0 !== r && this.modelUriToEditor.set(r, e)
-          })), this.monacoSite === mE.DEEPNOTE && (e.onKeyDown = (n = e.onKeyDown, function(e, t) {
+          void 0 !== editorUri && this.modelUriToEditor.set(editorUri, editor), 
+          //update tracking when editor model changes
+          editor.onDidChangeModel((modelChange => {
+              const oldUri = modelChange.oldModelUrl?.toString();
+              void 0 !== oldUri && this.modelUriToEditor.delete(oldUri);
+              const newUri = modelChange.newModelUrl?.toString();
+              void 0 !== newUri && this.modelUriToEditor.set(newUri, editor)
+          })), 
+          // Special handling for DeepNote
+          this.monacoSite === mE.DEEPNOTE && (editor.onKeyDown = (n = editor.onKeyDown, function(e, t) {
               n.call(this, function(e) {
                   return function(t) {
                       if ("Tab" !== t.browserEvent.key) return e(t)
@@ -30413,7 +30425,7 @@
                           if (pE = !0, void 0 === e) return void console.warn("Codeium: found no keybindings for Jupyter Notebook");
                           {
                               const r = function(e, t, n, r) {
-                                  const a = new eE(e, t, n);
+                                  const a = new JupyterCodeCompletionIntegration(e, t, n);
                                   return a.patchCellKeyEvent(r), a.patchShortcutManagerHandler(), a
                               }(EE, this.Jupyter, e, t);
                               ! function(e, t) {
