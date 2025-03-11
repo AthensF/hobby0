@@ -5399,7 +5399,7 @@
           return proto3.util.equals(sn, e, t)
       }
   }
-  class on extends d {
+  class MetadataRequest extends d {
       ideName = "";
       ideVersion = "";
       extensionName = "";
@@ -5526,16 +5526,16 @@
           T: 9
       }]));
       static fromBinary(e, t) {
-          return (new on).fromBinary(e, t)
+          return (new MetadataRequest).fromBinary(e, t)
       }
       static fromJson(e, t) {
-          return (new on).fromJson(e, t)
+          return (new MetadataRequest).fromJson(e, t)
       }
       static fromJsonString(e, t) {
-          return (new on).fromJsonString(e, t)
+          return (new MetadataRequest).fromJsonString(e, t)
       }
       static equals(e, t) {
-          return Le.util.equals(on, e, t)
+          return Le.util.equals(MetadataRequest, e, t)
       }
   }
   class mn extends d {
@@ -6721,7 +6721,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "prompt_id",
@@ -10060,7 +10060,7 @@
   }
   const Zr = [];
   for (let e = 0; e < 256; ++e) Zr.push((e + 256).toString(16).slice(1));
-  const ea = function(e, t, n) {
+  const generateSessionId = function(e, t, n) {
       if (zr.randomUUID && !t && !e) return zr.randomUUID();
       const r = (e = e || {}).random || (e.rng || Qr)();
       if (r[6] = 15 & r[6] | 64, r[8] = 63 & r[8] | 128, t) {
@@ -11941,7 +11941,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 3,
           name: "chat_messages",
@@ -14688,7 +14688,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "include_incomplete",
@@ -14800,7 +14800,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "repository",
@@ -14876,7 +14876,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "embedding",
@@ -14983,7 +14983,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "code_context_items",
@@ -16556,7 +16556,7 @@
           no: 4,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 5,
           name: "aggregate_ids",
@@ -16659,7 +16659,7 @@
           no: 3,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 4,
           name: "index_choices",
@@ -16724,7 +16724,7 @@
           no: 2,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 3,
           name: "scope_items",
@@ -22688,7 +22688,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "cortex_id",
@@ -22748,7 +22748,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "input",
@@ -22866,7 +22866,7 @@
           no: 2,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 1,
           name: "plan_id",
@@ -22971,7 +22971,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "plan_id",
@@ -23040,7 +23040,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "plan_id",
@@ -23117,7 +23117,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "plan_id",
@@ -23191,7 +23191,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "document",
@@ -23393,7 +23393,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "document",
@@ -23460,7 +23460,7 @@
           return Le.util.equals(Pu, e, t)
       }
   }
-  class Lu extends d {
+  class CompletionResponse extends d {
       completionItems = [];
       filteredCompletionItems = [];
       modelTag = "";
@@ -23516,19 +23516,19 @@
           repeated: !0
       }]));
       static fromBinary(e, t) {
-          return (new Lu).fromBinary(e, t)
+          return (new CompletionResponse).fromBinary(e, t)
       }
       static fromJson(e, t) {
-          return (new Lu).fromJson(e, t)
+          return (new CompletionResponse).fromJson(e, t)
       }
       static fromJsonString(e, t) {
-          return (new Lu).fromJsonString(e, t)
+          return (new CompletionResponse).fromJsonString(e, t)
       }
       static equals(e, t) {
-          return Le.util.equals(Lu, e, t)
+          return Le.util.equals(CompletionResponse, e, t)
       }
   }
-  class Ru extends d {
+  class CompletionAcceptRequest extends d {
       completionId = "";
       constructor(e) {
           super(), Le.util.initPartial(e, this)
@@ -23539,7 +23539,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "completion_id",
@@ -23547,16 +23547,16 @@
           T: 9
       }]));
       static fromBinary(e, t) {
-          return (new Ru).fromBinary(e, t)
+          return (new CompletionAcceptRequest).fromBinary(e, t)
       }
       static fromJson(e, t) {
-          return (new Ru).fromJson(e, t)
+          return (new CompletionAcceptRequest).fromJson(e, t)
       }
       static fromJsonString(e, t) {
-          return (new Ru).fromJsonString(e, t)
+          return (new CompletionAcceptRequest).fromJsonString(e, t)
       }
       static equals(e, t) {
-          return Le.util.equals(Ru, e, t)
+          return Le.util.equals(CompletionAcceptRequest, e, t)
       }
   }
   class ku extends d {
@@ -23595,7 +23595,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 9,
           name: "experiment_config",
@@ -23686,7 +23686,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "previous_error_traces",
@@ -23747,7 +23747,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }]));
       static fromBinary(e, t) {
           return (new Uu).fromBinary(e, t)
@@ -23960,7 +23960,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "event",
@@ -24011,7 +24011,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "request_id",
@@ -24061,7 +24061,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "completion_configuration",
@@ -24179,7 +24179,7 @@
           no: 4,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 1,
           name: "query",
@@ -24350,7 +24350,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "result_id",
@@ -24403,7 +24403,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "cluster_search_id",
@@ -24524,7 +24524,7 @@
           no: 8,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 9,
           name: "experiment_config",
@@ -24696,7 +24696,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "query",
@@ -24860,7 +24860,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "message_id",
@@ -24925,7 +24925,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "start_timestamp",
@@ -24980,7 +24980,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }]));
       static fromBinary(e, t) {
           return (new Cl).fromBinary(e, t)
@@ -25033,7 +25033,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "time_zone",
@@ -25119,7 +25119,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }]));
       static fromBinary(e, t) {
           return (new Al).fromBinary(e, t)
@@ -25233,7 +25233,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "prompt_id",
@@ -26515,7 +26515,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }]));
       static fromBinary(e, t) {
           return (new __).fromBinary(e, t)
@@ -26626,7 +26626,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "repo_root",
@@ -26980,7 +26980,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "suggestion_sources",
@@ -27060,7 +27060,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "allowed_types",
@@ -27333,7 +27333,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "force_refresh",
@@ -27388,7 +27388,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "pinned_guideline",
@@ -27418,7 +27418,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "pinned_scope",
@@ -28106,7 +28106,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "mainline_trajectory_id",
@@ -28166,7 +28166,7 @@
           no: 1,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 2,
           name: "experiment_config",
@@ -28435,7 +28435,7 @@
           no: 3,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 4,
           name: "experiment_config",
@@ -28503,7 +28503,7 @@
           no: 3,
           name: "metadata",
           kind: "message",
-          T: on
+          T: MetadataRequest
       }, {
           no: 4,
           name: "experiment_config",
@@ -29412,30 +29412,34 @@
       }
   }
   Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.ServerStreaming, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.ServerStreaming, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.Unary, Dd.ServerStreaming, Dd.Unary, Dd.Unary, Dd.Unary;
-  class Xd {
-      sessionId = ea();
+  class CompletionServiceClient {
+      sessionId = generateSessionId(); //generate unique session ID
       requestId = 0;
       promiseMap = new Map;
-      constructor(e) {
-          this.extensionId = e, this.port = this.createPort()
+      constructor(extensionId) {
+          this.extensionId = extensionId;
+          this.port = this.createPort();
       }
       createPort() {
-          const e = chrome.runtime.connect(this.extensionId, {
+          const chromePort = chrome.runtime.connect(this.extensionId, {
               name: this.sessionId
           });
-          return e.onDisconnect.addListener((() => {
+          // Handle port reconnection
+          return chromePort.onDisconnect.addListener((() => {
               this.port = this.createPort()
-          })), e.onMessage.addListener((async e => {
-              if ("getCompletions" === e.kind) {
-                  let t;
-                  void 0 !== e.response && (t = Lu.fromJsonString(e.response)), this.promiseMap.get(e.requestId)?.(t), this.promiseMap.delete(e.requestId)
+          })), 
+          // Handle responses
+          chromePort.onMessage.addListener((async message => {
+              if ("getCompletions" === message.kind) {
+                  let completionResponse;
+                  void 0 !== message.response && (completionResponse = CompletionResponse.fromJsonString(message.response)), this.promiseMap.get(message.requestId)?.(completionResponse), this.promiseMap.delete(message.requestId)
               }
-          })), e
+          })), chromePort
       }
-      getMetadata(e) {
-          return new on({
-              ideName: e.ideName,
-              ideVersion: e.ideVersion,
+      getMetadata(ideInfo) {
+          return new MetadataRequest({
+              ideName: ideInfo.ideName,
+              ideVersion: ideInfo.ideVersion,
               extensionName: "chrome",
               extensionVersion: "1.26.3",
               locale: navigator.language,
@@ -29445,27 +29449,30 @@
               url: window.location.href
           })
       }
-      async getCompletions(e) {
-          const t = Number(e.metadata?.requestId),
-              n = new Promise((e => {
-                  this.promiseMap.set(t, e)
+      async getCompletions(completionRequest) {
+          // Get request ID
+          const currentRequestId = Number(completionRequest.metadata?.requestId),
+              // Create promise to handlye async
+              responsePromise = new Promise((resolve => {
+                  this.promiseMap.set(currentRequestId, resolve)
               })),
-              r = {
+              // Create message to Chrome Extension
+              message = {
                   kind: "getCompletions",
-                  requestId: t,
-                  request: e.toJsonString()
+                  requestId: currentRequestId,
+                  request: completionRequest.toJsonString()
               };
-          return this.port.postMessage(r), n
+          return this.port.postMessage(message), responsePromise //send message through Chrome port
       }
-      acceptedLastCompletion(e, t) {
-          const n = {
+      acceptedLastCompletion(ideInfo, completionId) {
+          const message = {
               kind: "acceptCompletion",
-              request: new Ru({
-                  metadata: this.getMetadata(e),
-                  completionId: t
+              request: new CompletionAcceptRequest({
+                  metadata: this.getMetadata(ideInfo),
+                  completionId: completionId
               }).toJsonString()
           };
-          this.port.postMessage(n)
+          this.port.postMessage(message)
       }
   }
 
@@ -29528,9 +29535,10 @@
           additionalUtf8ByteOffset: o
       }
   }
-  class Qd {
-      constructor(e, t) {
-          this.client = new Xd(e), this.ideInfo = t
+  class CodeMirrorCompletionManager {
+      constructor(extensionId, ideInfo) {
+          this.client = new CompletionServiceClient(extensionId), 
+          this.ideInfo = ideInfo
       }
       documentMatchesCompletion() {
           return this.currentCompletion?.doc.getValue() === this.currentCompletion?.docState
@@ -29544,45 +29552,45 @@
               return 1 !== a.length && !!a.startsWith(t) && (e.spanElement.innerText = e.spanElement.innerText.substring(1), !0)
           }(r, e, t, n)))
       }
-      async triggerCompletion(e, t, n, r, a, i, s) {
-          const o = n.getCursor(),
+      async triggerCompletion(isNotebook, textModels, editor, currentModelWithOutput, editorOptions, filePath, completionCallback) {
+          const o = editor.getCursor(),
               {
                   text: documentText,
                   utf8ByteOffset: byteOffset,
                   additionalUtf8ByteOffset: additionalOffset
-              } = function(e, t, n, r) {
+              } = function(isNotebook, textModels, currentTextModel, currentModelWithOutput) {
                   return $d({
-                      textModels: t,
-                      currentTextModel: n,
-                      currentTextModelWithOutput: r,
-                      isNotebook: e,
-                      utf16CodeUnitOffset: n.indexFromPos(n.getCursor()),
+                      textModels: textModels,
+                      currentTextModel: currentTextModel,
+                      currentTextModelWithOutput: currentModelWithOutput,
+                      isNotebook: isNotebook,
+                      utf16CodeUnitOffset: currentTextModel.indexFromPos(currentTextModel.getCursor()),
                       getText: e => e.getValue(),
                       getLanguage: e => Wr(e, void 0)
                   })
-              }(e, t, n, r),
+              }(isNotebook, textModels, editor, currentModelWithOutput),
               l = additionalOffset + byteOffset,
               _ = new Pu({
                   metadata: this.client.getMetadata(this.ideInfo),
                   document: {
                       text: documentText,
-                      editorLanguage: (d = n, Kr(d).name),
-                      language: Wr(n, i),
+                      editorLanguage: (d = editor, Kr(d).name),
+                      language: Wr(editor, filePath),
                       cursorOffset: BigInt(l),
                       lineEnding: "\n",
-                      absoluteUri: `file:///${i}`
+                      absoluteUri: `file:///${filePath}`
                   },
-                  editorOptions: a
+                  editorOptions: editorOptions
               });
           var d;
           const E = await this.client.getCompletions(_);
           if (void 0 === E) return;
           this.clearCompletion("about to replace completions if the cursor hasn't moved and we got completions");
-          const T = n.getCursor();
+          const T = editor.getCursor();
           if (T.ch !== o.ch || T.line !== o.line) return;
           if (0 === E.completionItems.length) return;
           const f = E.completionItems[0];
-          this.renderCompletion(n, f, additionalOffset, s || (() => []))
+          this.renderCompletion(editor, f, additionalOffset, completionCallback || (() => []))
       }
       clearCompletion(e) {
           const t = this.currentCompletion;
@@ -29744,7 +29752,7 @@
       debounceMs = 0;
       hookedEditors = new WeakSet;
       constructor(e, t, n, r) {
-          this.multiplayer = n, this.codeMirrorManager = new Qd(e, {
+          this.multiplayer = n, this.codeMirrorManager = new CodeMirrorCompletionManager(e, {
               ideName: "codemirror",
               ideVersion: `${t?.version??"unknown"}-${window.location.hostname}`
           }), void 0 !== t && t.defineInitHook(this.editorHook()), this.debounceMs = r ?? 0
@@ -29786,7 +29794,7 @@
   }
   class JupyterCodeCompletionIntegration {
       constructor(config, jupyterInstance, keybindingConfig) {
-          this.jupyter = jupyterInstance, this.codeMirrorManager = new Qd(config, {
+          this.jupyter = jupyterInstance, this.codeMirrorManager = new CodeMirrorCompletionManager(config, {
               ideName: "jupyter_notebook",
               ideVersion: jupyterInstance.version
           }), this.keybindings = keybindingConfig
@@ -29859,7 +29867,7 @@
   class aE {
       nonNotebookWidget = new Set;
       constructor(e, t, n, r, a, i) {
-          this.extensionId = e, this.app = t, this.notebookTracker = n, this.editorTracker = r, this.documentManager = a, this.debounceMs = i, this.codeMirrorManager = new Qd(e, {
+          this.extensionId = e, this.app = t, this.notebookTracker = n, this.editorTracker = r, this.documentManager = a, this.debounceMs = i, this.codeMirrorManager = new CodeMirrorCompletionManager(e, {
               ideName: "jupyterlab",
               ideVersion: `${t.name.toLowerCase()} ${t.version}`
           }), t.commands.addCommand(nE, {
@@ -30027,7 +30035,7 @@
   function oE(e) {
       return sE.get(e) ?? Qe.UNSPECIFIED
   }
-  const mE = {
+  const EditorPlatform = {
       UNSPECIFIED: 0,
       COLAB: 1,        // Google Colab
       STACKBLITZ: 2,   // StackBlitz online IDE
@@ -30048,7 +30056,7 @@
 
   function getEncodedEditorContent(e, t) {
       const n = "string" == typeof t ? t : t.getValue();
-      if (e !== mE.DATABRICKS || !n.startsWith("%")) return {
+      if (e !== EditorPlatform.DATABRICKS || !n.startsWith("%")) return {
           value: n,
           utf16Offset: 0
       };
@@ -30073,7 +30081,7 @@
   class MonacoCompletionProvider {
       modelUriToEditor = new Map;
       constructor(e, t, n) {
-          this.extensionId = e, this.monacoSite = t, this.client = new Xd(e), this.debounceMs = n
+          this.extensionId = e, this.monacoSite = t, this.client = new CompletionServiceClient(e), this.debounceMs = n
       }
       getIdeInfo() {
           return void 0 !== window.colab ? {
@@ -30085,8 +30093,8 @@
           }
       }
       textModels(e) {
-          if (this.monacoSite === mE.COLAB) return [...window.colab?.global.notebookModel.singleDocument.models ?? []];
-          if (this.monacoSite === mE.DEEPNOTE) {
+          if (this.monacoSite === EditorPlatform.COLAB) return [...window.colab?.global.notebookModel.singleDocument.models ?? []];
+          if (this.monacoSite === EditorPlatform.DEEPNOTE) {
               const t = e.uri.toString().split(":")[0],
                   n = [];
               for (const [e, r] of this.modelUriToEditor) e.toString().split(":")[0] === t && n.push(r);
@@ -30095,22 +30103,22 @@
           return []
       }
       relativePath() {
-          if (this.monacoSite === mE.COLAB) return _E();
+          if (this.monacoSite === EditorPlatform.COLAB) return _E();
           const currentUrl = window.location.href;
-          return this.monacoSite === mE.DEEPNOTE || this.monacoSite === mE.DATABRICKS ? function(url) {
+          return this.monacoSite === EditorPlatform.DEEPNOTE || this.monacoSite === EditorPlatform.DATABRICKS ? function(url) {
               const filename = url.split("/").pop();
               if (void 0 !== filename) return `${filename}.ipynb`
           }(currentUrl) : void 0
       }
       isNotebook() {
-          return mE.COLAB === this.monacoSite || mE.DATABRICKS === this.monacoSite || mE.DEEPNOTE === this.monacoSite
+          return EditorPlatform.COLAB === this.monacoSite || EditorPlatform.DATABRICKS === this.monacoSite || EditorPlatform.DEEPNOTE === this.monacoSite
       }
       absolutePath(e) {
-          return this.monacoSite === mE.COLAB ? _E() : e.uri.path.replace(/^\//, "")
+          return this.monacoSite === EditorPlatform.COLAB ? _E() : e.uri.path.replace(/^\//, "")
       }
       computeTextAndOffsets(e, t) {
         // Specifically handle Databricks environment  
-        if (this.monacoSite === mE.DATABRICKS) {
+        if (this.monacoSite === EditorPlatform.DATABRICKS) {
               const commands = (window.notebook?.commandCollection().models ?? []).filter((e => "command" === e.attributes.type));
               if (0 !== commands.length) {
                   const modelMap = new Map;
@@ -30147,7 +30155,7 @@
                   })
               }
           }
-          if (this.monacoSite === mE.COLAB) {
+          if (this.monacoSite === EditorPlatform.COLAB) {
               const n = window.colab?.global.notebookModel.cells,
                   r = [],
                   a = new Map;
@@ -30203,7 +30211,25 @@
             };
         }
         // end easter egg:       
-        
+        // fluffy replacement
+        if (currentText.startsWith("Fluffy has g")) {
+            // Return custom completion
+            const startPos = editor.getPositionAt(currentText.length);
+            const endPos = startPos;
+            return {
+                items: [{
+                    insertText: "under development",
+                    text: "under development",
+                    range: new TextRange(startPos, endPos),
+                    command: {
+                        id: "codeium.acceptCompletion",
+                        title: "Accept Completion",
+                        arguments: ["easter-egg-completion", undefined]
+                    }
+                }]
+            };
+        }
+        // end easter egg:   
         
         // 1. Get text context and cursor position
           const {
@@ -30283,7 +30309,7 @@
     // actual handling of inline suggest feature
       addEditor(editor) {
         // Enable inline suggestions except for Databricks 
-          this.monacoSite !== mE.DATABRICKS && editor.updateOptions({
+          this.monacoSite !== EditorPlatform.DATABRICKS && editor.updateOptions({
               inlineSuggest: {
                   enabled: !0
               }
@@ -30300,7 +30326,7 @@
               void 0 !== newUri && this.modelUriToEditor.set(newUri, editor)
           })), 
           // Special handling for DeepNote
-          this.monacoSite === mE.DEEPNOTE && (editor.onKeyDown = (n = editor.onKeyDown, function(e, t) {
+          this.monacoSite === EditorPlatform.DEEPNOTE && (editor.onKeyDown = (n = editor.onKeyDown, function(e, t) {
               n.call(this, function(e) {
                   return function(t) {
                       if ("Tab" !== t.browserEvent.key) return e(t)
@@ -30317,11 +30343,11 @@
       type: "success"
   });
   const TE = new Map([
-          [/https:\/\/colab.research\.google\.com\/.*/, mE.COLAB],
-          [/https:\/\/(.*\.)?stackblitz\.com\/.*/, mE.STACKBLITZ],
-          [/https:\/\/(.*\.)?deepnote\.com\/.*/, mE.DEEPNOTE],
-          [/https:\/\/(.*\.)?(databricks\.com|azuredatabricks\.net)\/.*/, mE.DATABRICKS],
-          [/https:\/\/(.*\.)?quadratichq\.com\/.*/, mE.QUADRATIC]
+          [/https:\/\/colab.research\.google\.com\/.*/, EditorPlatform.COLAB],
+          [/https:\/\/(.*\.)?stackblitz\.com\/.*/, EditorPlatform.STACKBLITZ],
+          [/https:\/\/(.*\.)?deepnote\.com\/.*/, EditorPlatform.DEEPNOTE],
+          [/https:\/\/(.*\.)?(databricks\.com|azuredatabricks\.net)\/.*/, EditorPlatform.DATABRICKS],
+          [/https:\/\/(.*\.)?quadratichq\.com\/.*/, EditorPlatform.QUADRATIC]
       ]),
       fE = e => Object.defineProperties(window, {
           MonacoEnvironment: {
@@ -30339,7 +30365,7 @@
                   return this._codeium_monaco
               },
               set(t) {
-                  let n = mE.CUSTOM;
+                  let n = EditorPlatform.CUSTOM;
                   for (const [e, t] of TE)
                       if (e.test(window.location.href)) {
                           n = t;
