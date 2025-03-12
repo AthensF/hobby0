@@ -36528,6 +36528,7 @@
                 Authorization: `Basic ${e}-${this.sessionId}`
             }
         }
+        // ====== transplant =====
         async getCompletions(completionRequest) {
             this.abortController?.abort();
             this.abortController = new AbortController;
@@ -36546,7 +36547,7 @@
                 return await completionResponse
             } catch (error) {
                 if (abortSignal.aborted) return;
-                return void(error instanceof ConnectError ? error.code != StatusCode.Canceled && (console.log(error.message), chrome.runtime.sendMessage(chrome.runtime.id, {
+                return void(error instanceof ConnectError ? error.code != StatusCode.Canceled && (console.log(error.message), chrome.runtime.sendMessage(chrome.runtime.id, { // this where the error calls out
                     type: "error",
                     message: error.message
                 })) : (console.log(error.message), chrome.runtime.sendMessage(chrome.runtime.id, {
@@ -36555,6 +36556,7 @@
                 })))
             }
         }
+        // ====== transplant ======
         async acceptedLastCompletion(e) {
             if (void 0 !== e.metadata) try {
                 const t = await this.clientSettingsPoller.clientSettings;
