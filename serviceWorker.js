@@ -939,7 +939,7 @@
         }
     }
 
-    function oe(e) {
+    function retrieveSyncedData(e) {
         return new Promise(((t, n) => {
             chrome.storage.sync.get([e], (a => chrome.runtime.lastError ? n(chrome.runtime.lastError) : t(a[e])))
         }))
@@ -959,7 +959,7 @@
         }))
     }
     async function ce() {
-        const e = await oe("portalUrl");
+        const e = await retrieveSyncedData("portalUrl");
         if (void 0 !== e && "" !== e) {
             try {
                 new URL(e)
@@ -970,7 +970,7 @@
         }
     }
     const le = [/https:\/\/colab.research\.google\.com\/.*/, /https:\/\/(.*\.)?stackblitz\.com\/.*/, /https:\/\/(.*\.)?deepnote\.com\/.*/, /https:\/\/(.*\.)?(databricks\.com|azuredatabricks\.net)\/.*/, /https:\/\/(.*\.)?quadratichq\.com\/.*/, /https?:\/\/(.*\.)?jsfiddle\.net(\/.*)?/, /https:\/\/(.*\.)?codepen\.io(\/.*)?/, /https:\/\/(.*\.)?codeshare\.io(\/.*)?/, /https:\/\/console\.paperspace\.com\/.*\/notebook\/.*/, /https?:\/\/www\.codewars\.com(\/.*)?/, /https:\/\/(.*\.)?github\.com(\/.*)?/, /http:\/\/(localhost|127\.0\.0\.1):[0-9]+\/.*\.ipynb/, /https:\/\/(.*\.)?script.google.com(\/.*)?/].map((e => e.source)),
-        de = "https://server.codeium.com";
+        DEFAULT_SERVER_URL = "https://server.codeium.com";
 
     function _e(e, t) {
         if (!e) throw new Error(t)
@@ -30149,7 +30149,7 @@
             return Mt.util.equals(GetCompletionsResponse, e, t)
         }
     }
-    class hf extends Oe {
+    class AcceptCompletionRequest extends Oe {
         completionId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30168,16 +30168,16 @@
             T: 9
         }]));
         static fromBinary(e, t) {
-            return (new hf).fromBinary(e, t)
+            return (new AcceptCompletionRequest).fromBinary(e, t)
         }
         static fromJson(e, t) {
-            return (new hf).fromJson(e, t)
+            return (new AcceptCompletionRequest).fromJson(e, t)
         }
         static fromJsonString(e, t) {
-            return (new hf).fromJsonString(e, t)
+            return (new AcceptCompletionRequest).fromJsonString(e, t)
         }
         static equals(e, t) {
-            return Mt.util.equals(hf, e, t)
+            return Mt.util.equals(AcceptCompletionRequest, e, t)
         }
     }
     class Df extends Oe {
@@ -36034,7 +36034,7 @@
             },
             acceptCompletion: {
                 name: "AcceptCompletion",
-                I: hf,
+                I: AcceptCompletionRequest,
                 O: Df,
                 kind: i.Unary
             },
@@ -36567,7 +36567,7 @@
         }
     }
     async function jp() {
-        const e = await oe("lastError");
+        const e = await retrieveSyncedData("lastError");
         e && 0 !== Object.keys(e).length && await ue("lastError", {})
     }
     async function $p() {
@@ -36619,7 +36619,7 @@
                     defaults: le,
                     current: le
                 }
-            }), console.log("Extension successfully installed!"), void 0 === (await oe("user"))?.apiKey) {
+            }), console.log("Extension successfully installed!"), void 0 === (await retrieveSyncedData("user"))?.apiKey) {
             await $p();
             const e = s();
             Zp.push(e);
@@ -36715,7 +36715,7 @@
         console.error(e)
     })), !0) : void("error" != e.type ? "success" != e.type ? "string" == typeof e.token && "string" == typeof e.state ? (async () => {
         const t = e,
-            n = await oe("user");
+            n = await retrieveSyncedData("user");
         void 0 === n?.apiKey && await nS(t.token)
     })().catch((e => {
         console.error(e)
@@ -36739,7 +36739,7 @@
     }(e.message).catch((e => {
         console.error(e)
     }))))), chrome.runtime.onStartup.addListener((async () => {
-        void 0 === (await oe("user"))?.apiKey ? await $p() : await Qp()
+        void 0 === (await retrieveSyncedData("user"))?.apiKey ? await $p() : await Qp()
     })), chrome.runtime.onMessage.addListener((e => {
         if ("state" === e.type) {
             const t = e.payload;
@@ -36754,8 +36754,8 @@
             const t = await ce(),
                 n = await async function(firebaseIdToken) {
                     const t = await async function() {
-                        const e = (await oe("portalUrl"))?.trim();
-                        return void 0 === e || "" === e ? de : `${e.replace(/\/$/,"")}/_route/api_server`
+                        const e = (await retrieveSyncedData("portalUrl"))?.trim();
+                        return void 0 === e || "" === e ? DEFAULT_SERVER_URL : `${e.replace(/\/$/,"")}/_route/api_server`
                     }();
                     if (void 0 === t) throw new Error("apiServerUrl is undefined");
                     const n = y(am, ie({
@@ -36782,9 +36782,13 @@
     }
     chrome.runtime.onConnectExternal.addListener((port => {
         connectionClients.set(port.name, new LanguageServerClient(async function() {
-            const userData = await oe("user"),
+            const userData = await retrieveSyncedData("user"),
                 portalUrl = userData?.userPortalUrl;
-            return void 0 === portalUrl || "" === portalUrl ? de : `${portalUrl}/_route/language_server`
+            console.log("portalUrl", portalUrl);
+            
+            //  "If we don't have a portal URL from the user data, use the default server URL; 
+            // otherwise, use the user's portal URL with the language server path appended to it."
+            return void 0 === portalUrl || "" === portalUrl ? DEFAULT_SERVER_URL : `${portalUrl}/_route/language_server` 
         }(), port.name)), port.onDisconnect.addListener((port => {
             connectionClients.delete(port.name)
         })), port.onMessage.addListener((async (message, port) => {
@@ -36798,7 +36802,7 @@
                         response: completionResponse?.toJsonString()
                     };
                 port.postMessage(response)
-            } else "acceptCompletion" == message.kind ? await (client?.acceptedLastCompletion(hf.fromJsonString(message.request))) : console.log("Unrecognized message:", message)
+            } else "acceptCompletion" == message.kind ? await (client?.acceptedLastCompletion(AcceptCompletionRequest.fromJsonString(message.request))) : console.log("Unrecognized message:", message)
         }))
     }))
 })();
