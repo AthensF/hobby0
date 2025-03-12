@@ -29999,7 +29999,7 @@
             return Mt.util.equals(Af, e, t)
         }
     }
-    class Lf extends Oe {
+    class GetCompletionsRequest extends Oe {
         otherDocuments = [];
         disableCache = !1;
         oracleItems = [];
@@ -30069,19 +30069,19 @@
             T: Af
         }]));
         static fromBinary(e, t) {
-            return (new Lf).fromBinary(e, t)
+            return (new GetCompletionsRequest).fromBinary(e, t)
         }
         static fromJson(e, t) {
-            return (new Lf).fromJson(e, t)
+            return (new GetCompletionsRequest).fromJson(e, t)
         }
         static fromJsonString(e, t) {
-            return (new Lf).fromJsonString(e, t)
+            return (new GetCompletionsRequest).fromJsonString(e, t)
         }
         static equals(e, t) {
-            return Mt.util.equals(Lf, e, t)
+            return Mt.util.equals(GetCompletionsRequest, e, t)
         }
     }
-    class xf extends Oe {
+    class GetCompletionsResponse extends Oe {
         completionItems = [];
         filteredCompletionItems = [];
         modelTag = "";
@@ -30137,16 +30137,16 @@
             repeated: !0
         }]));
         static fromBinary(e, t) {
-            return (new xf).fromBinary(e, t)
+            return (new GetCompletionsResponse).fromBinary(e, t)
         }
         static fromJson(e, t) {
-            return (new xf).fromJson(e, t)
+            return (new GetCompletionsResponse).fromJson(e, t)
         }
         static fromJsonString(e, t) {
-            return (new xf).fromJsonString(e, t)
+            return (new GetCompletionsResponse).fromJsonString(e, t)
         }
         static equals(e, t) {
-            return Mt.util.equals(xf, e, t)
+            return Mt.util.equals(GetCompletionsResponse, e, t)
         }
     }
     class hf extends Oe {
@@ -36028,8 +36028,8 @@
         methods: {
             getCompletions: {
                 name: "GetCompletions",
-                I: Lf,
-                O: xf,
+                I: GetCompletionsRequest,
+                O: GetCompletionsResponse,
                 kind: i.Unary
             },
             acceptCompletion: {
@@ -36510,7 +36510,7 @@
             }), 500)
         }
     }
-    class zp {
+    class LanguageServerClient {
         constructor(e, t) {
             this.sessionId = t, this.client = (async () => {
                 const t = await e;
@@ -36748,11 +36748,11 @@
             console.error(e)
         })) : console.log("Unrecognized message:", e)
     }));
-    const tS = new Map;
+    const connectionClients = new Map;
     async function nS(e) {
         try {
             const t = await ce(),
-                n = await async function(e) {
+                n = await async function(firebaseIdToken) {
                     const t = await async function() {
                         const e = (await oe("portalUrl"))?.trim();
                         return void 0 === e || "" === e ? de : `${e.replace(/\/$/,"")}/_route/api_server`
@@ -36763,12 +36763,12 @@
                             useBinaryFormat: !0,
                             defaultTimeoutMs: 5e3
                         })),
-                        a = await n.registerUser({
-                            firebaseIdToken: e
+                        userData = await n.registerUser({
+                            firebaseIdToken: firebaseIdToken
                         });
                     return {
-                        api_key: a.apiKey,
-                        name: a.name
+                        api_key: userData.apiKey,
+                        name: userData.name
                     }
                 }(e);
             await ue("user", {
@@ -36780,24 +36780,25 @@
             console.log(e)
         }
     }
-    chrome.runtime.onConnectExternal.addListener((e => {
-        tS.set(e.name, new zp(async function() {
-            const e = await oe("user"),
-                t = e?.userPortalUrl;
-            return void 0 === t || "" === t ? de : `${t}/_route/language_server`
-        }(), e.name)), e.onDisconnect.addListener((e => {
-            tS.delete(e.name)
-        })), e.onMessage.addListener((async (e, t) => {
-            const n = tS.get(t.name);
-            if ("getCompletions" === e.kind) {
-                const a = await (n?.getCompletions(Lf.fromJsonString(e.request))),
-                    r = {
+    chrome.runtime.onConnectExternal.addListener((port => {
+        connectionClients.set(port.name, new LanguageServerClient(async function() {
+            const userData = await oe("user"),
+                portalUrl = userData?.userPortalUrl;
+            return void 0 === portalUrl || "" === portalUrl ? de : `${portalUrl}/_route/language_server`
+        }(), port.name)), port.onDisconnect.addListener((port => {
+            connectionClients.delete(port.name)
+        })), port.onMessage.addListener((async (message, port) => {
+            const client = connectionClients.get(port.name);
+            if ("getCompletions" === message.kind) { // The magic happens here, sending request to server
+                console.log("Parsed completion request:", JSON.parse(message.request)); // printing out the request
+                const completionResponse = await (client?.getCompletions(GetCompletionsRequest.fromJsonString(message.request))),
+                    response = {
                         kind: "getCompletions",
-                        requestId: e.requestId,
-                        response: a?.toJsonString()
+                        requestId: message.requestId,
+                        response: completionResponse?.toJsonString()
                     };
-                t.postMessage(r)
-            } else "acceptCompletion" == e.kind ? await (n?.acceptedLastCompletion(hf.fromJsonString(e.request))) : console.log("Unrecognized message:", e)
+                port.postMessage(response)
+            } else "acceptCompletion" == message.kind ? await (client?.acceptedLastCompletion(hf.fromJsonString(message.request))) : console.log("Unrecognized message:", message)
         }))
     }))
 })();
