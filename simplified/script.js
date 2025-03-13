@@ -12,6 +12,10 @@
   const extensionId = new URLSearchParams(document.currentScript.src.split("?")[1]).get("id");
 
   // Notify the extension that the script loaded successfully
+  // L30341 - chrome.runtime.sendMessage(EE, { type: "success" }) in script-learn.js
+  // this busted in first run.  chrome.runtime did not exists.  I'm researching this now:
+  // https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts#host-page-communication
+  
   chrome.runtime.sendMessage(extensionId, {
     type: "success"
   });
