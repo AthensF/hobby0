@@ -36511,6 +36511,7 @@
             }), 500)
         }
     }
+    // ========== Important stuff, used for getCompletion down below
     class LanguageServerClient {
         constructor(e, t) {
             this.sessionId = t, this.client = (async () => {
@@ -36531,6 +36532,9 @@
         }
         // ====== transplant =====
         async getCompletions(completionRequest) {
+            // console.log does not appear here
+            // console.log("getCompletions called with request:", completionRequest); /////////
+
             this.abortController?.abort();
             this.abortController = new AbortController;
             const clientSettings = await this.clientSettingsPoller.clientSettings;
@@ -36545,7 +36549,11 @@
             });
             
             try {
-                return await completionResponse
+                const result = await completionResponse;
+                // console.log("Completion response full response object:", result); // Log the full response
+                console.log("Completion response:", result.completionItems[0].completion.text); // Log the full response
+
+                return result;
             } catch (error) {
                 if (abortSignal.aborted) return;
                 return void(error instanceof ConnectError ? error.code != StatusCode.Canceled && (console.log(error.message), chrome.runtime.sendMessage(chrome.runtime.id, { // this where the error calls out
@@ -36559,6 +36567,7 @@
         }
         // ====== transplant ======
         async acceptedLastCompletion(e) {
+            
             if (void 0 !== e.metadata) try {
                 const t = await this.clientSettingsPoller.clientSettings;
                 e.metadata.apiKey = t.apiKey, await ((await this.client)?.acceptCompletion(e, {
@@ -36784,6 +36793,7 @@
         }
     }
     chrome.runtime.onConnectExternal.addListener((port => {
+
         // Create a new LanguageServerClient for each connection and store it in connectionClients map
         connectionClients.set(port.name, new LanguageServerClient(
             async function() {
@@ -36810,7 +36820,12 @@
             const client = connectionClients.get(port.name);
 
             if ("getCompletions" === message.kind) { // The magic happens here, sending request to server
-                console.log("Parsed completion request:", JSON.parse(message.request)); // printing out the request
+                // console.log("Completion request:", JSON.parse(message.request)); // printing out the request
+                const rawUserInput = JSON.parse(message.request).document.text;
+                const codeMatch = rawUserInput.match(/CELL:\s*(.+)/s);
+                const userInput = codeMatch ? codeMatch[1].trim() : rawUserInput;
+                // extract and log user input text
+                console.log("Completion request:", userInput) 
                 
                 const completionResponse = await (client?.getCompletions(
                     GetCompletionsRequest.fromJsonString(message.request)
@@ -36823,7 +36838,8 @@
                 
                 port.postMessage(response);
             } else if ("acceptCompletion" == message.kind) {
-                await (client?.acceptedLastCompletion(AcceptCompletionRequest.fromJsonString(message.request)))
+                // console.log("COMPLETION ACCEPTED:", JSON.parse(message.request)); /////// // console.log does not appear here
+                await (client?.acceptedLastCompletion(AcceptCompletionRequest.fromJsonString(message.request)))                
             } else {
                 console.log("Unrecognized message:", message)
             }
