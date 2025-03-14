@@ -1026,7 +1026,7 @@
             localName: e.name
         })
     }
-    class Oe {
+    class ProtobufMessageBase {
         equals(e) {
             return this.getType().runtime.util.equals(this.getType(), this, e)
         }
@@ -1405,7 +1405,7 @@
 
     function je(e, t) {
         if (null === e || "object" != typeof e) return !1;
-        if (!Object.getOwnPropertyNames(Oe.prototype).every((t => t in e && "function" == typeof e[t]))) return !1;
+        if (!Object.getOwnPropertyNames(ProtobufMessageBase.prototype).every((t => t in e && "function" == typeof e[t]))) return !1;
         const n = e.getType();
         return null !== n && "function" == typeof n && "typeName" in n && "string" == typeof n.typeName && (void 0 === t || n.typeName == t.typeName)
     }
@@ -2484,7 +2484,7 @@
                             e.util.initFields(this), e.util.initPartial(t, this)
                         }
                     } [s];
-                return Object.setPrototypeOf(i.prototype, new Oe), Object.assign(i, {
+                return Object.setPrototypeOf(i.prototype, new ProtobufMessageBase), Object.assign(i, {
                     runtime: e,
                     typeName: t,
                     fields: e.util.newFieldList(n),
@@ -2527,7 +2527,7 @@
         }
     });
     var qt, bt;
-    class Gt extends Oe {
+    class Gt extends ProtobufMessageBase {
         constructor(e) {
             super(), this.seconds = Fe.zero, this.nanos = 0, Mt.util.initPartial(e, this)
         }
@@ -2588,7 +2588,7 @@
         kind: "scalar",
         T: 5
     }]));
-    class vt extends Oe {
+    class vt extends ProtobufMessageBase {
         constructor(e) {
             super(), this.seconds = Fe.zero, this.nanos = 0, Mt.util.initPartial(e, this)
         }
@@ -4759,7 +4759,7 @@
             no: 5,
             name: "INDEX_CHOICE_JIRA_BASE"
         }]);
-    class Xn extends Oe {
+    class Xn extends ProtobufMessageBase {
         prompt = "";
         contextPrompt = "";
         promptElementRanges = [];
@@ -4926,7 +4926,7 @@
             return Mt.util.equals(Xn, e, t)
         }
     }
-    class Vn extends Oe {
+    class Vn extends ProtobufMessageBase {
         numCompletions = Fe.zero;
         maxTokens = Fe.zero;
         maxNewlines = Fe.zero;
@@ -5031,7 +5031,7 @@
             return Mt.util.equals(Vn, e, t)
         }
     }
-    class Yn extends Oe {
+    class Yn extends ProtobufMessageBase {
         kind = Xt.UNSPECIFIED;
         byteOffsetStart = Fe.zero;
         byteOffsetEnd = Fe.zero;
@@ -5081,7 +5081,7 @@
             return Mt.util.equals(Yn, e, t)
         }
     }
-    class Kn extends Oe {
+    class Kn extends ProtobufMessageBase {
         cortexPlanId = "";
         codePlanId = "";
         actionIndex = 0;
@@ -5119,7 +5119,7 @@
             return Mt.util.equals(Kn, e, t)
         }
     }
-    class Wn extends Oe {
+    class Wn extends ProtobufMessageBase {
         kind = Vt.UNSPECIFIED;
         byteOffsetStart = Fe.zero;
         byteOffsetEnd = Fe.zero;
@@ -5157,7 +5157,7 @@
             return Mt.util.equals(Wn, e, t)
         }
     }
-    class zn extends Oe {
+    class zn extends ProtobufMessageBase {
         key = Yt.UNSPECIFIED;
         keyString = "";
         disabled = !1;
@@ -5222,7 +5222,7 @@
             return Mt.util.equals(zn, e, t)
         }
     }
-    class jn extends Oe {
+    class jn extends ProtobufMessageBase {
         experiments = [];
         forceEnableExperiments = [];
         forceDisableExperiments = [];
@@ -5454,7 +5454,7 @@
             return proto3.util.equals(ta, e, t)
         }
     }
-    class na extends Oe {
+    class na extends ProtobufMessageBase {
         kind = Xt.UNSPECIFIED;
         experimentKey = Yt.UNSPECIFIED;
         enabled = !1;
@@ -5536,7 +5536,7 @@
             return proto3.util.equals(aa, e, t)
         }
     }
-    class ra extends Oe {
+    class ra extends ProtobufMessageBase {
         name = "";
         latencyMs = Fe.zero;
         constructor(e) {
@@ -5644,7 +5644,7 @@
             return proto3.util.equals(sa, e, t)
         }
     }
-    class ia extends Oe {
+    class ia extends ProtobufMessageBase {
         completionId = "";
         text = "";
         stop = "";
@@ -5741,7 +5741,7 @@
             return Mt.util.equals(ia, e, t)
         }
     }
-    class oa extends Oe {
+    class oa extends ProtobufMessageBase {
         completionIds = [];
         maxTokens = Fe.zero;
         temperature = 0;
@@ -5827,7 +5827,7 @@
             return Mt.util.equals(oa, e, t)
         }
     }
-    class ma extends Oe {
+    class ma extends ProtobufMessageBase {
         decodedToken = new Uint8Array(0);
         token = Fe.zero;
         probability = 0;
@@ -5899,7 +5899,7 @@
             return Mt.util.equals(ma, e, t)
         }
     }
-    class ua extends Oe {
+    class ua extends ProtobufMessageBase {
         completions = {};
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -5929,7 +5929,7 @@
             return Mt.util.equals(ua, e, t)
         }
     }
-    class ca extends Oe {
+    class ca extends ProtobufMessageBase {
         completionMaps = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -5956,7 +5956,7 @@
             return Mt.util.equals(ca, e, t)
         }
     }
-    class la extends Oe {
+    class la extends ProtobufMessageBase {
         perTokenLogLikelihoods = [];
         isGreedy = !1;
         constructor(e) {
@@ -6030,7 +6030,7 @@
             return proto3.util.equals(da, e, t)
         }
     }
-    class _a extends Oe {
+    class _a extends ProtobufMessageBase {
         apiServerLatencyMs = Fe.zero;
         languageServerLatencyMs = Fe.zero;
         networkLatencyMs = Fe.zero;
@@ -6179,7 +6179,7 @@
             return proto3.util.equals(Ea, e, t)
         }
     }
-    class Ta extends Oe {
+    class Ta extends ProtobufMessageBase {
         values = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -6311,7 +6311,7 @@
             return proto3.util.equals(ga, e, t)
         }
     }
-    class Na extends Oe {
+    class Na extends ProtobufMessageBase {
         ideName = "";
         ideVersion = "";
         extensionName = "";
@@ -6450,7 +6450,7 @@
             return Mt.util.equals(Na, e, t)
         }
     }
-    class Ia extends Oe {
+    class Ia extends ProtobufMessageBase {
         tabSize = Fe.zero;
         insertSpaces = !1;
         disableAutocompleteInComments = !1;
@@ -6488,7 +6488,7 @@
             return Mt.util.equals(Ia, e, t)
         }
     }
-    class ya extends Oe {
+    class ya extends ProtobufMessageBase {
         errorId = "";
         timestampUnixMs = Fe.zero;
         stacktrace = "";
@@ -6532,7 +6532,7 @@
             return Mt.util.equals(ya, e, t)
         }
     }
-    class wa extends Oe {
+    class wa extends ProtobufMessageBase {
         eventType = an.UNSPECIFIED;
         eventJson = "";
         timestampUnixMs = Fe.zero;
@@ -6656,7 +6656,7 @@
             return proto3.util.equals(Ca, e, t)
         }
     }
-    class ka extends Oe {
+    class ka extends ProtobufMessageBase {
         workspaceMigrateMeToUri = "";
         workspaceUri = "";
         relativePath = "";
@@ -6694,7 +6694,7 @@
             return Mt.util.equals(ka, e, t)
         }
     }
-    class Oa extends Oe {
+    class Oa extends ProtobufMessageBase {
         nodeName = "";
         startLine = 0;
         endLine = 0;
@@ -6738,7 +6738,7 @@
             return Mt.util.equals(Oa, e, t)
         }
     }
-    class Pa extends Oe {
+    class Pa extends ProtobufMessageBase {
         completions = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -6848,7 +6848,7 @@
             return proto3.util.equals(Ja, e, t)
         }
     }
-    class Ra extends Oe {
+    class Ra extends ProtobufMessageBase {
         workspace = "";
         numFiles = {};
         numBytes = {};
@@ -6894,7 +6894,7 @@
             return Mt.util.equals(Ra, e, t)
         }
     }
-    class Aa extends Oe {
+    class Aa extends ProtobufMessageBase {
         numTotalFiles = 0;
         numIndexedFiles = 0;
         constructor(e) {
@@ -6931,7 +6931,7 @@
             return Mt.util.equals(Aa, e, t)
         }
     }
-    class La extends Oe {
+    class La extends ProtobufMessageBase {
         rawSource = "";
         cleanFunction = "";
         docstring = "";
@@ -7035,7 +7035,7 @@
             return Mt.util.equals(La, e, t)
         }
     }
-    class xa extends Oe {
+    class xa extends ProtobufMessageBase {
         rawSource = "";
         startLine = 0;
         endLine = 0;
@@ -7142,7 +7142,7 @@
             return Mt.util.equals(xa, e, t)
         }
     }
-    class ha extends Oe {
+    class ha extends ProtobufMessageBase {
         teamsTier = En.UNSPECIFIED;
         planName = "";
         hasAutocompleteFastMode = !1;
@@ -7228,7 +7228,7 @@
             return Mt.util.equals(ha, e, t)
         }
     }
-    class Da extends Oe {
+    class Da extends ProtobufMessageBase {
         pro = !1;
         disableTelemetry = !1;
         name = "";
@@ -7316,7 +7316,7 @@
             return Mt.util.equals(Da, e, t)
         }
     }
-    class Ua extends Oe {
+    class Ua extends ProtobufMessageBase {
         name = "";
         owner = "";
         repoName = "";
@@ -7378,7 +7378,7 @@
             return Mt.util.equals(Ua, e, t)
         }
     }
-    class Ba extends Oe {
+    class Ba extends ProtobufMessageBase {
         absolutePathMigrateMeToUri = "";
         absoluteUri = "";
         workspacePaths = [];
@@ -7487,7 +7487,7 @@
             return Mt.util.equals(Ba, e, t)
         }
     }
-    class Fa extends Oe {
+    class Fa extends ProtobufMessageBase {
         snippet = "";
         wordCountBySplitter = {};
         constructor(e) {
@@ -7523,7 +7523,7 @@
             return Mt.util.equals(Fa, e, t)
         }
     }
-    class Ma extends Oe {
+    class Ma extends ProtobufMessageBase {
         wordCountMap = {};
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -7553,7 +7553,7 @@
             return Mt.util.equals(Ma, e, t)
         }
     }
-    class qa extends Oe {
+    class qa extends ProtobufMessageBase {
         computedName = "";
         gitOriginUrl = "";
         gitUpstreamUrl = "";
@@ -7615,7 +7615,7 @@
             return Mt.util.equals(qa, e, t)
         }
     }
-    class ba extends Oe {
+    class ba extends ProtobufMessageBase {
         promptId = "";
         filePath = "";
         originalFileContent = "";
@@ -7688,7 +7688,7 @@
             return Mt.util.equals(ba, e, t)
         }
     }
-    class Ga extends Oe {
+    class Ga extends ProtobufMessageBase {
         numAcceptances = 0;
         numRejections = 0;
         numLinesAccepted = 0;
@@ -7750,7 +7750,7 @@
             return Mt.util.equals(Ga, e, t)
         }
     }
-    class va extends Oe {
+    class va extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -7780,7 +7780,7 @@
             return Mt.util.equals(va, e, t)
         }
     }
-    class Ha extends Oe {
+    class Ha extends ProtobufMessageBase {
         language = un.UNSPECIFIED;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -7811,7 +7811,7 @@
             return Mt.util.equals(Ha, e, t)
         }
     }
-    class Xa extends Oe {
+    class Xa extends ProtobufMessageBase {
         chatsSent = Fe.zero;
         chatsReceived = Fe.zero;
         chatsAccepted = Fe.zero;
@@ -7951,7 +7951,7 @@
             return proto3.util.equals(Va, e, t)
         }
     }
-    class Ya extends Oe {
+    class Ya extends ProtobufMessageBase {
         modelId = Wt.MODEL_UNSPECIFIED;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -7982,7 +7982,7 @@
             return Mt.util.equals(Ya, e, t)
         }
     }
-    class Ka extends Oe {
+    class Ka extends ProtobufMessageBase {
         numCommands = Fe.zero;
         numCommandsAccepted = Fe.zero;
         numCommandsRejected = Fe.zero;
@@ -8169,7 +8169,7 @@
             return proto3.util.equals(za, e, t)
         }
     }
-    class ja extends Oe {
+    class ja extends ProtobufMessageBase {
         event = Jn.CASCADE_NUX_EVENT_UNSPECIFIED;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -8200,7 +8200,7 @@
             return Mt.util.equals(ja, e, t)
         }
     }
-    class $a extends Oe {
+    class $a extends ProtobufMessageBase {
         openMostRecentChatConversation = !1;
         lastSelectedModel = Wt.MODEL_UNSPECIFIED;
         themePreference = wn.UNSPECIFIED;
@@ -8287,7 +8287,7 @@
             return Mt.util.equals($a, e, t)
         }
     }
-    class Qa extends Oe {
+    class Qa extends ProtobufMessageBase {
         supportsContextTokens = !1;
         requiresInstructTags = !1;
         requiresFimContext = !1;
@@ -8361,7 +8361,7 @@
             return Mt.util.equals(Qa, e, t)
         }
     }
-    class Za extends Oe {
+    class Za extends ProtobufMessageBase {
         isInternal = !1;
         modelId = Wt.MODEL_UNSPECIFIED;
         modelName = "";
@@ -8441,7 +8441,7 @@
             return Mt.util.equals(Za, e, t)
         }
     }
-    class er extends Oe {
+    class er extends ProtobufMessageBase {
         modelId = Wt.MODEL_UNSPECIFIED;
         isInternal = !1;
         modelType = Rn.UNSPECIFIED;
@@ -8562,7 +8562,7 @@
             return proto3.util.equals(tr, e, t)
         }
     }
-    class nr extends Oe {
+    class nr extends ProtobufMessageBase {
         uid = "";
         completionId = "";
         filePath = "";
@@ -8654,7 +8654,7 @@
             return proto3.util.equals(ar, e, t)
         }
     }
-    class rr extends Oe {
+    class rr extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -8684,7 +8684,7 @@
             return Mt.util.equals(rr, e, t)
         }
     }
-    class sr extends Oe {
+    class sr extends ProtobufMessageBase {
         snippetType = gn.UNSPECIFIED;
         startOffset = Fe.zero;
         endOffset = Fe.zero;
@@ -8722,7 +8722,7 @@
             return Mt.util.equals(sr, e, t)
         }
     }
-    class ir extends Oe {
+    class ir extends ProtobufMessageBase {
         absolutePathMigrateMeToUri = "";
         absoluteUri = "";
         workspaceRelativePathsMigrateMeToWorkspaceUris = {};
@@ -8786,7 +8786,7 @@
             return Mt.util.equals(ir, e, t)
         }
     }
-    class or extends Oe {
+    class or extends ProtobufMessageBase {
         absoluteUri = "";
         startLine = 0;
         endLine = 0;
@@ -8824,7 +8824,7 @@
             return Mt.util.equals(or, e, t)
         }
     }
-    class mr extends Oe {
+    class mr extends ProtobufMessageBase {
         content = "";
         identifier = {
             case: void 0
@@ -8865,7 +8865,7 @@
             return Mt.util.equals(mr, e, t)
         }
     }
-    class ur extends Oe {
+    class ur extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -8890,7 +8890,7 @@
             return Mt.util.equals(ur, e, t)
         }
     }
-    class cr extends Oe {
+    class cr extends ProtobufMessageBase {
         relativePath = "";
         isDir = !1;
         constructor(e) {
@@ -8927,7 +8927,7 @@
             return Mt.util.equals(cr, e, t)
         }
     }
-    class lr extends Oe {
+    class lr extends ProtobufMessageBase {
         documentId = "";
         index = bn.UNSPECIFIED;
         displayName = "";
@@ -8983,7 +8983,7 @@
             return Mt.util.equals(lr, e, t)
         }
     }
-    class dr extends Oe {
+    class dr extends ProtobufMessageBase {
         scopeItem = {
             case: void 0
         };
@@ -9066,7 +9066,7 @@
             return Mt.util.equals(dr, e, t)
         }
     }
-    class _r extends Oe {
+    class _r extends ProtobufMessageBase {
         items = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -9093,7 +9093,7 @@
             return Mt.util.equals(_r, e, t)
         }
     }
-    class fr extends Oe {
+    class fr extends ProtobufMessageBase {
         nodeName = "";
         graphStateJson = new Uint8Array(0);
         graphStateJsonNumBytes = Fe.zero;
@@ -9146,7 +9146,7 @@
             return Mt.util.equals(fr, e, t)
         }
     }
-    class Er extends Oe {
+    class Er extends ProtobufMessageBase {
         history = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -9178,7 +9178,7 @@
             return Mt.util.equals(Er, e, t)
         }
     }
-    class Tr extends Oe {
+    class Tr extends ProtobufMessageBase {
         items = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -9205,7 +9205,7 @@
             return Mt.util.equals(Tr, e, t)
         }
     }
-    class pr extends Oe {
+    class pr extends ProtobufMessageBase {
         guideline = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -9231,7 +9231,7 @@
             return Mt.util.equals(pr, e, t)
         }
     }
-    class Sr extends Oe {
+    class Sr extends ProtobufMessageBase {
         model = Wt.MODEL_UNSPECIFIED;
         maxInputTokens = 0;
         temperature = 0;
@@ -9281,7 +9281,7 @@
             return Mt.util.equals(Sr, e, t)
         }
     }
-    class gr extends Oe {
+    class gr extends ProtobufMessageBase {
         shouldBatchCcis = !1;
         maxTokensPerSubrange = Fe.zero;
         numParserWorkers = Fe.zero;
@@ -9363,7 +9363,7 @@
             return Mt.util.equals(gr, e, t)
         }
     }
-    class Nr extends Oe {
+    class Nr extends ProtobufMessageBase {
         deltaText = "";
         deltaTokens = 0;
         stopReason = jt.UNSPECIFIED;
@@ -9449,7 +9449,7 @@
             return proto3.util.equals(Ir, e, t)
         }
     }
-    class yr extends Oe {
+    class yr extends ProtobufMessageBase {
         id = "";
         name = "";
         argumentsJson = "";
@@ -9487,7 +9487,7 @@
             return Mt.util.equals(yr, e, t)
         }
     }
-    class wr extends Oe {
+    class wr extends ProtobufMessageBase {
         level = Dn.UNSPECIFIED;
         message = "";
         constructor(e) {
@@ -9519,7 +9519,7 @@
             return Mt.util.equals(wr, e, t)
         }
     }
-    class Cr extends Oe {
+    class Cr extends ProtobufMessageBase {
         row = Fe.zero;
         col = Fe.zero;
         constructor(e) {
@@ -9551,7 +9551,7 @@
             return Mt.util.equals(Cr, e, t)
         }
     }
-    class kr extends Oe {
+    class kr extends ProtobufMessageBase {
         startOffset = Fe.zero;
         endOffset = Fe.zero;
         constructor(e) {
@@ -9593,7 +9593,7 @@
             return Mt.util.equals(kr, e, t)
         }
     }
-    class Or extends Oe {
+    class Or extends ProtobufMessageBase {
         absolutePathMigrateMeToUri = "";
         absoluteUri = "";
         relativePathMigrateMeToWorkspaceUri = "";
@@ -9751,7 +9751,7 @@
             return proto3.util.equals(Pr, e, t)
         }
     }
-    class Jr extends Oe {
+    class Jr extends ProtobufMessageBase {
         chunk = {
             case: void 0
         };
@@ -9786,7 +9786,7 @@
             return Mt.util.equals(Jr, e, t)
         }
     }
-    class Rr extends Oe {
+    class Rr extends ProtobufMessageBase {
         matchRepoName = "";
         matchPath = "";
         pinnedContexts = [];
@@ -9825,7 +9825,7 @@
             return Mt.util.equals(Rr, e, t)
         }
     }
-    class Ar extends Oe {
+    class Ar extends ProtobufMessageBase {
         contextItem = {
             case: void 0
         };
@@ -9854,7 +9854,7 @@
             return Mt.util.equals(Ar, e, t)
         }
     }
-    class Lr extends Oe {
+    class Lr extends ProtobufMessageBase {
         remoteRepoName = "";
         version = "";
         relativePath = "";
@@ -9919,7 +9919,7 @@
             return proto3.util.equals(xr, e, t)
         }
     }
-    class hr extends Oe {
+    class hr extends ProtobufMessageBase {
         id = "";
         prompt = "";
         constructor(e) {
@@ -9994,7 +9994,7 @@
             return proto3.util.equals(Dr, e, t)
         }
     }
-    class Ur extends Oe {
+    class Ur extends ProtobufMessageBase {
         logs = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -10046,7 +10046,7 @@
             return proto3.util.equals(Br, e, t)
         }
     }
-    class Fr extends Oe {
+    class Fr extends ProtobufMessageBase {
         backend = {
             case: void 0
         };
@@ -10081,7 +10081,7 @@
             return Mt.util.equals(Fr, e, t)
         }
     }
-    class Mr extends Oe {
+    class Mr extends ProtobufMessageBase {
         faissStateStats = [];
         totalItemCount = Fe.zero;
         quantized = !1;
@@ -10120,7 +10120,7 @@
             return Mt.util.equals(Mr, e, t)
         }
     }
-    class qr extends Oe {
+    class qr extends ProtobufMessageBase {
         embeddingSource = tn.UNSPECIFIED;
         workspace = "";
         itemCount = Fe.zero;
@@ -10158,7 +10158,7 @@
             return Mt.util.equals(qr, e, t)
         }
     }
-    class br extends Oe {
+    class br extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -10209,7 +10209,7 @@
             return proto3.util.equals(Gr, e, t)
         }
     }
-    class vr extends Oe {
+    class vr extends ProtobufMessageBase {
         model = Wt.MODEL_UNSPECIFIED;
         inputTokens = Fe.zero;
         outputTokens = Fe.zero;
@@ -10259,7 +10259,7 @@
             return Mt.util.equals(vr, e, t)
         }
     }
-    class Hr extends Oe {
+    class Hr extends ProtobufMessageBase {
         reason = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -10285,7 +10285,7 @@
             return Mt.util.equals(Hr, e, t)
         }
     }
-    class Xr extends Oe {
+    class Xr extends ProtobufMessageBase {
         message = "";
         severity = "";
         source = "";
@@ -10328,7 +10328,7 @@
             return Mt.util.equals(Xr, e, t)
         }
     }
-    class Vr extends Oe {
+    class Vr extends ProtobufMessageBase {
         overlappedCodeContextItems = [];
         firstElementSuffixOverlap = 0;
         lastElementPrefixOverlap = 0;
@@ -10372,7 +10372,7 @@
             return Mt.util.equals(Vr, e, t)
         }
     }
-    class Yr extends Oe {
+    class Yr extends ProtobufMessageBase {
         text = "";
         cursorOffset = 0;
         startLine = 0;
@@ -10422,7 +10422,7 @@
             return Mt.util.equals(Yr, e, t)
         }
     }
-    class Kr extends Oe {
+    class Kr extends ProtobufMessageBase {
         element = {
             case: void 0
         };
@@ -10463,7 +10463,7 @@
             return Mt.util.equals(Kr, e, t)
         }
     }
-    class Wr extends Oe {
+    class Wr extends ProtobufMessageBase {
         elements = [];
         startIndex = Fe.zero;
         constructor(e) {
@@ -10574,7 +10574,7 @@
             return proto3.util.equals(zr, e, t)
         }
     }
-    class jr extends Oe {
+    class jr extends ProtobufMessageBase {
         id = "";
         name = "";
         description = "";
@@ -10659,7 +10659,7 @@
             return proto3.util.equals($r, e, t)
         }
     }
-    class Qr extends Oe {
+    class Qr extends ProtobufMessageBase {
         text = "";
         position = 0;
         constructor(e) {
@@ -10691,7 +10691,7 @@
             return Mt.util.equals(Qr, e, t)
         }
     }
-    class Zr extends Oe {
+    class Zr extends ProtobufMessageBase {
         documentId = "";
         url = "";
         title = "";
@@ -10747,7 +10747,7 @@
             return Mt.util.equals(Zr, e, t)
         }
     }
-    class es extends Oe {
+    class es extends ProtobufMessageBase {
         score = 0;
         indexName = "";
         constructor(e) {
@@ -10784,7 +10784,7 @@
             return Mt.util.equals(es, e, t)
         }
     }
-    class ts extends Oe {
+    class ts extends ProtobufMessageBase {
         description = "";
         children = [];
         constructor(e) {
@@ -10822,7 +10822,7 @@
             return Mt.util.equals(ts, e, t)
         }
     }
-    class ns extends Oe {
+    class ns extends ProtobufMessageBase {
         command = "";
         cwd = "";
         shellPid = 0;
@@ -10917,7 +10917,7 @@
             no: 2,
             name: "STRIPE_PRICE_TEAMS_YEARLY"
         }]);
-    class as extends Oe {
+    class as extends ProtobufMessageBase {
         apiKey = "";
         name = "";
         email = "";
@@ -11095,7 +11095,7 @@
             return Mt.util.equals(as, e, t)
         }
     }
-    class rs extends Oe {
+    class rs extends ProtobufMessageBase {
         id = "";
         name = "";
         inviteId = "";
@@ -11197,7 +11197,7 @@
             return Mt.util.equals(rs, e, t)
         }
     }
-    class ss extends Oe {
+    class ss extends ProtobufMessageBase {
         id = "";
         name = "";
         email = "";
@@ -11257,7 +11257,7 @@
             return Mt.util.equals(ss, e, t)
         }
     }
-    class is extends Oe {
+    class is extends ProtobufMessageBase {
         exists = !1;
         newsletter = !1;
         disabledTelemetry = !1;
@@ -11307,7 +11307,7 @@
             return Mt.util.equals(is, e, t)
         }
     }
-    class os extends Oe {
+    class os extends ProtobufMessageBase {
         apiKey = "";
         roles = [];
         roleId = "";
@@ -11352,7 +11352,7 @@
             return Mt.util.equals(os, e, t)
         }
     }
-    class ms extends Oe {
+    class ms extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -11377,7 +11377,7 @@
             return Mt.util.equals(ms, e, t)
         }
     }
-    class us extends Oe {
+    class us extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -11407,7 +11407,7 @@
             return Mt.util.equals(us, e, t)
         }
     }
-    class cs extends Oe {
+    class cs extends ProtobufMessageBase {
         authToken = "";
         generateProfilePictureUrl = !1;
         createIfNotExist = !1;
@@ -11451,7 +11451,7 @@
             return Mt.util.equals(cs, e, t)
         }
     }
-    class ls extends Oe {
+    class ls extends ProtobufMessageBase {
         roles = [];
         permissions = [];
         constructor(e) {
@@ -11510,7 +11510,7 @@
             return Mt.util.equals(ls, e, t)
         }
     }
-    class ds extends Oe {
+    class ds extends ProtobufMessageBase {
         authToken = "";
         groupId = "";
         constructor(e) {
@@ -11542,7 +11542,7 @@
             return Mt.util.equals(ds, e, t)
         }
     }
-    class _s extends Oe {
+    class _s extends ProtobufMessageBase {
         users = [];
         userRoles = [];
         constructor(e) {
@@ -11576,7 +11576,7 @@
             return Mt.util.equals(_s, e, t)
         }
     }
-    class fs extends Oe {
+    class fs extends ProtobufMessageBase {
         authToken = "";
         apiKey = "";
         constructor(e) {
@@ -11608,7 +11608,7 @@
             return Mt.util.equals(fs, e, t)
         }
     }
-    class Es extends Oe {
+    class Es extends ProtobufMessageBase {
         roles = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -11635,7 +11635,7 @@
             return Mt.util.equals(Es, e, t)
         }
     }
-    class Ts extends Oe {
+    class Ts extends ProtobufMessageBase {
         authToken = "";
         apiKey = "";
         role = "";
@@ -11679,7 +11679,7 @@
             return Mt.util.equals(Ts, e, t)
         }
     }
-    class ps extends Oe {
+    class ps extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -11699,7 +11699,7 @@
             return Mt.util.equals(ps, e, t)
         }
     }
-    class Ss extends Oe {
+    class Ss extends ProtobufMessageBase {
         authToken = "";
         apiKey = "";
         role = "";
@@ -11743,7 +11743,7 @@
             return Mt.util.equals(Ss, e, t)
         }
     }
-    class gs extends Oe {
+    class gs extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -11763,7 +11763,7 @@
             return Mt.util.equals(gs, e, t)
         }
     }
-    class Ns extends Oe {
+    class Ns extends ProtobufMessageBase {
         firebaseIdToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -11790,7 +11790,7 @@
             return Mt.util.equals(Ns, e, t)
         }
     }
-    class Is extends Oe {
+    class Is extends ProtobufMessageBase {
         apiKey = "";
         name = "";
         constructor(e) {
@@ -11823,7 +11823,7 @@
             return Mt.util.equals(Is, e, t)
         }
     }
-    class ys extends Oe {
+    class ys extends ProtobufMessageBase {
         authToken = "";
         fullName = "";
         constructor(e) {
@@ -11855,7 +11855,7 @@
             return Mt.util.equals(ys, e, t)
         }
     }
-    class ws extends Oe {
+    class ws extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -11875,7 +11875,7 @@
             return Mt.util.equals(ws, e, t)
         }
     }
-    class Cs extends Oe {
+    class Cs extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -11901,7 +11901,7 @@
             return Mt.util.equals(Cs, e, t)
         }
     }
-    class ks extends Oe {
+    class ks extends ProtobufMessageBase {
         url = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -11927,7 +11927,7 @@
             return Mt.util.equals(ks, e, t)
         }
     }
-    class Os extends Oe {
+    class Os extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -11953,7 +11953,7 @@
             return Mt.util.equals(Os, e, t)
         }
     }
-    class Ps extends Oe {
+    class Ps extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -11973,7 +11973,7 @@
             return Mt.util.equals(Ps, e, t)
         }
     }
-    class Js extends Oe {
+    class Js extends ProtobufMessageBase {
         apiKey = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -11999,7 +11999,7 @@
             return Mt.util.equals(Js, e, t)
         }
     }
-    class Rs extends Oe {
+    class Rs extends ProtobufMessageBase {
         profilePictureUrl = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12025,7 +12025,7 @@
             return Mt.util.equals(Rs, e, t)
         }
     }
-    class As extends Oe {
+    class As extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12051,7 +12051,7 @@
             return Mt.util.equals(As, e, t)
         }
     }
-    class Ls extends Oe {
+    class Ls extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12071,7 +12071,7 @@
             return Mt.util.equals(Ls, e, t)
         }
     }
-    class xs extends Oe {
+    class xs extends ProtobufMessageBase {
         authToken = "";
         inboundSource = "";
         constructor(e) {
@@ -12103,7 +12103,7 @@
             return Mt.util.equals(xs, e, t)
         }
     }
-    class hs extends Oe {
+    class hs extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12123,7 +12123,7 @@
             return Mt.util.equals(hs, e, t)
         }
     }
-    class Ds extends Oe {
+    class Ds extends ProtobufMessageBase {
         authToken = "";
         apiKey = "";
         constructor(e) {
@@ -12155,7 +12155,7 @@
             return Mt.util.equals(Ds, e, t)
         }
     }
-    class Us extends Oe {
+    class Us extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12175,7 +12175,7 @@
             return Mt.util.equals(Us, e, t)
         }
     }
-    class Bs extends Oe {
+    class Bs extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12195,7 +12195,7 @@
             return Mt.util.equals(Bs, e, t)
         }
     }
-    class Fs extends Oe {
+    class Fs extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12220,7 +12220,7 @@
             return Mt.util.equals(Fs, e, t)
         }
     }
-    class Ms extends Oe {
+    class Ms extends ProtobufMessageBase {
         apiKey = "";
         inviteId = "";
         constructor(e) {
@@ -12252,7 +12252,7 @@
             return Mt.util.equals(Ms, e, t)
         }
     }
-    class qs extends Oe {
+    class qs extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12272,7 +12272,7 @@
             return Mt.util.equals(qs, e, t)
         }
     }
-    class bs extends Oe {
+    class bs extends ProtobufMessageBase {
         authToken = "";
         updates = [];
         constructor(e) {
@@ -12305,7 +12305,7 @@
             return Mt.util.equals(bs, e, t)
         }
     }
-    class Gs extends Oe {
+    class Gs extends ProtobufMessageBase {
         apiKey = "";
         status = ln.UNSPECIFIED;
         constructor(e) {
@@ -12337,7 +12337,7 @@
             return Mt.util.equals(Gs, e, t)
         }
     }
-    class vs extends Oe {
+    class vs extends ProtobufMessageBase {
         users = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12364,7 +12364,7 @@
             return Mt.util.equals(vs, e, t)
         }
     }
-    class Hs extends Oe {
+    class Hs extends ProtobufMessageBase {
         inviteId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12390,7 +12390,7 @@
             return Mt.util.equals(Hs, e, t)
         }
     }
-    class Xs extends Oe {
+    class Xs extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12415,7 +12415,7 @@
             return Mt.util.equals(Xs, e, t)
         }
     }
-    class Vs extends Oe {
+    class Vs extends ProtobufMessageBase {
         authToken = "";
         apiKey = "";
         constructor(e) {
@@ -12447,7 +12447,7 @@
             return Mt.util.equals(Vs, e, t)
         }
     }
-    class Ys extends Oe {
+    class Ys extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12467,7 +12467,7 @@
             return Mt.util.equals(Ys, e, t)
         }
     }
-    class Ks extends Oe {
+    class Ks extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12493,7 +12493,7 @@
             return Mt.util.equals(Ks, e, t)
         }
     }
-    class Ws extends Oe {
+    class Ws extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12518,7 +12518,7 @@
             return Mt.util.equals(Ws, e, t)
         }
     }
-    class zs extends Oe {
+    class zs extends ProtobufMessageBase {
         authToken = "";
         preapprovals = [];
         constructor(e) {
@@ -12551,7 +12551,7 @@
             return Mt.util.equals(zs, e, t)
         }
     }
-    class js extends Oe {
+    class js extends ProtobufMessageBase {
         name = "";
         email = "";
         constructor(e) {
@@ -12583,7 +12583,7 @@
             return Mt.util.equals(js, e, t)
         }
     }
-    class $s extends Oe {
+    class $s extends ProtobufMessageBase {
         preapprovals = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12610,7 +12610,7 @@
             return Mt.util.equals($s, e, t)
         }
     }
-    class Qs extends Oe {
+    class Qs extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12636,7 +12636,7 @@
             return Mt.util.equals(Qs, e, t)
         }
     }
-    class Zs extends Oe {
+    class Zs extends ProtobufMessageBase {
         preapprovals = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12663,7 +12663,7 @@
             return Mt.util.equals(Zs, e, t)
         }
     }
-    class ei extends Oe {
+    class ei extends ProtobufMessageBase {
         approvalId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12689,7 +12689,7 @@
             return Mt.util.equals(ei, e, t)
         }
     }
-    class ti extends Oe {
+    class ti extends ProtobufMessageBase {
         name = "";
         email = "";
         teamName = "";
@@ -12727,7 +12727,7 @@
             return Mt.util.equals(ti, e, t)
         }
     }
-    class ni extends Oe {
+    class ni extends ProtobufMessageBase {
         authToken = "";
         approvalId = "";
         constructor(e) {
@@ -12759,7 +12759,7 @@
             return Mt.util.equals(ni, e, t)
         }
     }
-    class ai extends Oe {
+    class ai extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12779,7 +12779,7 @@
             return Mt.util.equals(ai, e, t)
         }
     }
-    class ri extends Oe {
+    class ri extends ProtobufMessageBase {
         authToken = "";
         approvalId = "";
         constructor(e) {
@@ -12811,7 +12811,7 @@
             return Mt.util.equals(ri, e, t)
         }
     }
-    class si extends Oe {
+    class si extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12831,7 +12831,7 @@
             return Mt.util.equals(si, e, t)
         }
     }
-    class ii extends Oe {
+    class ii extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -12857,7 +12857,7 @@
             return Mt.util.equals(ii, e, t)
         }
     }
-    class oi extends Oe {
+    class oi extends ProtobufMessageBase {
         adminName = "";
         teamName = "";
         constructor(e) {
@@ -12894,7 +12894,7 @@
             return Mt.util.equals(oi, e, t)
         }
     }
-    class mi extends Oe {
+    class mi extends ProtobufMessageBase {
         authToken = "";
         approvalId = "";
         constructor(e) {
@@ -12926,7 +12926,7 @@
             return Mt.util.equals(mi, e, t)
         }
     }
-    class ui extends Oe {
+    class ui extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -12946,7 +12946,7 @@
             return Mt.util.equals(ui, e, t)
         }
     }
-    class ci extends Oe {
+    class ci extends ProtobufMessageBase {
         authToken = "";
         stripePriceId = "";
         startTrial = !1;
@@ -13020,7 +13020,7 @@
             return Mt.util.equals(ci, e, t)
         }
     }
-    class li extends Oe {
+    class li extends ProtobufMessageBase {
         checkoutUrl = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -13046,7 +13046,7 @@
             return Mt.util.equals(li, e, t)
         }
     }
-    class di extends Oe {
+    class di extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -13072,7 +13072,7 @@
             return Mt.util.equals(di, e, t)
         }
     }
-    class _i extends Oe {
+    class _i extends ProtobufMessageBase {
         subscriptionActive = !1;
         onTrial = !1;
         numSeats = Fe.zero;
@@ -13151,7 +13151,7 @@
             return Mt.util.equals(_i, e, t)
         }
     }
-    class fi extends Oe {
+    class fi extends ProtobufMessageBase {
         amount = 0;
         currency = "";
         paid = !1;
@@ -13200,7 +13200,7 @@
             return Mt.util.equals(fi, e, t)
         }
     }
-    class Ei extends Oe {
+    class Ei extends ProtobufMessageBase {
         type = "";
         paymentType = {
             case: void 0
@@ -13235,7 +13235,7 @@
             return Mt.util.equals(Ei, e, t)
         }
     }
-    class Ti extends Oe {
+    class Ti extends ProtobufMessageBase {
         brand = "";
         expMonth = Fe.zero;
         expYear = Fe.zero;
@@ -13279,7 +13279,7 @@
             return Mt.util.equals(Ti, e, t)
         }
     }
-    class pi extends Oe {
+    class pi extends ProtobufMessageBase {
         authToken = "";
         numSeats = Fe.zero;
         preview = !1;
@@ -13317,7 +13317,7 @@
             return Mt.util.equals(pi, e, t)
         }
     }
-    class Si extends Oe {
+    class Si extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -13342,7 +13342,7 @@
             return Mt.util.equals(Si, e, t)
         }
     }
-    class gi extends Oe {
+    class gi extends ProtobufMessageBase {
         authToken = "";
         price = Hn.UNSPECIFIED;
         preview = !1;
@@ -13392,7 +13392,7 @@
             return Mt.util.equals(gi, e, t)
         }
     }
-    class Ni extends Oe {
+    class Ni extends ProtobufMessageBase {
         appliedChanges = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -13423,7 +13423,7 @@
             return Mt.util.equals(Ni, e, t)
         }
     }
-    class Ii extends Oe {
+    class Ii extends ProtobufMessageBase {
         amountDueImmediately = 0;
         pricePerSeat = 0;
         numSeats = Fe.zero;
@@ -13473,7 +13473,7 @@
             return Mt.util.equals(Ii, e, t)
         }
     }
-    class yi extends Oe {
+    class yi extends ProtobufMessageBase {
         authToken = "";
         cancelPlan = !1;
         resumePlan = !1;
@@ -13523,7 +13523,7 @@
             return Mt.util.equals(yi, e, t)
         }
     }
-    class wi extends Oe {
+    class wi extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -13543,7 +13543,7 @@
             return Mt.util.equals(wi, e, t)
         }
     }
-    class Ci extends Oe {
+    class Ci extends ProtobufMessageBase {
         authToken = "";
         successUrl = "";
         cancelUrl = "";
@@ -13581,7 +13581,7 @@
             return Mt.util.equals(Ci, e, t)
         }
     }
-    class ki extends Oe {
+    class ki extends ProtobufMessageBase {
         checkoutUrl = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -13607,7 +13607,7 @@
             return Mt.util.equals(ki, e, t)
         }
     }
-    class Oi extends Oe {
+    class Oi extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -13633,7 +13633,7 @@
             return Mt.util.equals(Oi, e, t)
         }
     }
-    class Pi extends Oe {
+    class Pi extends ProtobufMessageBase {
         exists = !1;
         newsletter = !1;
         disabledTelemetry = !1;
@@ -13688,7 +13688,7 @@
             return Mt.util.equals(Pi, e, t)
         }
     }
-    class Ji extends Oe {
+    class Ji extends ProtobufMessageBase {
         authToken = "";
         username = "";
         constructor(e) {
@@ -13720,7 +13720,7 @@
             return Mt.util.equals(Ji, e, t)
         }
     }
-    class Ri extends Oe {
+    class Ri extends ProtobufMessageBase {
         available = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -13746,7 +13746,7 @@
             return Mt.util.equals(Ri, e, t)
         }
     }
-    class Ai extends Oe {
+    class Ai extends ProtobufMessageBase {
         authToken = "";
         username = "";
         constructor(e) {
@@ -13778,7 +13778,7 @@
             return Mt.util.equals(Ai, e, t)
         }
     }
-    class Li extends Oe {
+    class Li extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -13798,7 +13798,7 @@
             return Mt.util.equals(Li, e, t)
         }
     }
-    class xi extends Oe {
+    class xi extends ProtobufMessageBase {
         secret = "";
         adminEmail = "";
         teamName = "";
@@ -13848,7 +13848,7 @@
             return Mt.util.equals(xi, e, t)
         }
     }
-    class hi extends Oe {
+    class hi extends ProtobufMessageBase {
         teamId = "";
         inviteId = "";
         constructor(e) {
@@ -13880,7 +13880,7 @@
             return Mt.util.equals(hi, e, t)
         }
     }
-    class Di extends Oe {
+    class Di extends ProtobufMessageBase {
         authToken = "";
         occupationCompany = "";
         occupationRole = "";
@@ -13930,7 +13930,7 @@
             return Mt.util.equals(Di, e, t)
         }
     }
-    class Ui extends Oe {
+    class Ui extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -13950,7 +13950,7 @@
             return Mt.util.equals(Ui, e, t)
         }
     }
-    class Bi extends Oe {
+    class Bi extends ProtobufMessageBase {
         authToken = "";
         newName = "";
         newEmail = "";
@@ -13994,7 +13994,7 @@
             return Mt.util.equals(Bi, e, t)
         }
     }
-    class Fi extends Oe {
+    class Fi extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14014,7 +14014,7 @@
             return Mt.util.equals(Fi, e, t)
         }
     }
-    class Mi extends Oe {
+    class Mi extends ProtobufMessageBase {
         authToken = "";
         publicProfileEnabled = !1;
         constructor(e) {
@@ -14046,7 +14046,7 @@
             return Mt.util.equals(Mi, e, t)
         }
     }
-    class qi extends Oe {
+    class qi extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14066,7 +14066,7 @@
             return Mt.util.equals(qi, e, t)
         }
     }
-    class bi extends Oe {
+    class bi extends ProtobufMessageBase {
         secret = "";
         teamId = "";
         emails = [];
@@ -14105,7 +14105,7 @@
             return Mt.util.equals(bi, e, t)
         }
     }
-    class Gi extends Oe {
+    class Gi extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14125,7 +14125,7 @@
             return Mt.util.equals(Gi, e, t)
         }
     }
-    class vi extends Oe {
+    class vi extends ProtobufMessageBase {
         username = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14151,7 +14151,7 @@
             return Mt.util.equals(vi, e, t)
         }
     }
-    class Hi extends Oe {
+    class Hi extends ProtobufMessageBase {
         name = "";
         username = "";
         preferredTimeZone = "";
@@ -14206,7 +14206,7 @@
             return Mt.util.equals(Hi, e, t)
         }
     }
-    class Xi extends Oe {
+    class Xi extends ProtobufMessageBase {
         secret = "";
         email = "";
         roles = [];
@@ -14245,7 +14245,7 @@
             return Mt.util.equals(Xi, e, t)
         }
     }
-    class Vi extends Oe {
+    class Vi extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14265,7 +14265,7 @@
             return Mt.util.equals(Vi, e, t)
         }
     }
-    class Yi extends Oe {
+    class Yi extends ProtobufMessageBase {
         apiKey = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14301,7 +14301,7 @@
             return Mt.util.equals(Yi, e, t)
         }
     }
-    class Ki extends Oe {
+    class Ki extends ProtobufMessageBase {
         userActivity = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14328,7 +14328,7 @@
             return Mt.util.equals(Ki, e, t)
         }
     }
-    class Wi extends Oe {
+    class Wi extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14358,7 +14358,7 @@
             return Mt.util.equals(Wi, e, t)
         }
     }
-    class zi extends Oe {
+    class zi extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14384,7 +14384,7 @@
             return Mt.util.equals(zi, e, t)
         }
     }
-    class ji extends Oe {
+    class ji extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14409,7 +14409,7 @@
             return Mt.util.equals(ji, e, t)
         }
     }
-    class $i extends Oe {
+    class $i extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14440,7 +14440,7 @@
             return Mt.util.equals($i, e, t)
         }
     }
-    class Qi extends Oe {
+    class Qi extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14460,7 +14460,7 @@
             return Mt.util.equals(Qi, e, t)
         }
     }
-    class Zi extends Oe {
+    class Zi extends ProtobufMessageBase {
         ssoProviderId = "";
         idpEntityId = "";
         ssoUrl = "";
@@ -14510,7 +14510,7 @@
             return Mt.util.equals(Zi, e, t)
         }
     }
-    class eo extends Oe {
+    class eo extends ProtobufMessageBase {
         authToken = "";
         samlProviderId = "";
         constructor(e) {
@@ -14542,7 +14542,7 @@
             return Mt.util.equals(eo, e, t)
         }
     }
-    class to extends Oe {
+    class to extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14562,7 +14562,7 @@
             return Mt.util.equals(to, e, t)
         }
     }
-    class no extends Oe {
+    class no extends ProtobufMessageBase {
         email = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14588,7 +14588,7 @@
             return Mt.util.equals(no, e, t)
         }
     }
-    class ao extends Oe {
+    class ao extends ProtobufMessageBase {
         shouldRedirect = !1;
         ssoProviderId = "";
         disallowEnterpriseUserLogin = !1;
@@ -14632,7 +14632,7 @@
             return Mt.util.equals(ao, e, t)
         }
     }
-    class ro extends Oe {
+    class ro extends ProtobufMessageBase {
         seatLimit = 0;
         attributionEnabled = !1;
         auditLogsEnabled = !1;
@@ -14704,7 +14704,7 @@
             return Mt.util.equals(ro, e, t)
         }
     }
-    class so extends Oe {
+    class so extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14730,7 +14730,7 @@
             return Mt.util.equals(so, e, t)
         }
     }
-    class io extends Oe {
+    class io extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14750,7 +14750,7 @@
             return Mt.util.equals(io, e, t)
         }
     }
-    class oo extends Oe {
+    class oo extends ProtobufMessageBase {
         authToken = "";
         code = "";
         constructor(e) {
@@ -14782,7 +14782,7 @@
             return Mt.util.equals(oo, e, t)
         }
     }
-    class mo extends Oe {
+    class mo extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -14807,7 +14807,7 @@
             return Mt.util.equals(mo, e, t)
         }
     }
-    class uo extends Oe {
+    class uo extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14833,7 +14833,7 @@
             return Mt.util.equals(uo, e, t)
         }
     }
-    class co extends Oe {
+    class co extends ProtobufMessageBase {
         features = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14860,7 +14860,7 @@
             return Mt.util.equals(co, e, t)
         }
     }
-    class lo extends Oe {
+    class lo extends ProtobufMessageBase {
         secret = "";
         teamId = "";
         constructor(e) {
@@ -14892,7 +14892,7 @@
             return Mt.util.equals(lo, e, t)
         }
     }
-    class _o extends Oe {
+    class _o extends ProtobufMessageBase {
         features = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -14919,7 +14919,7 @@
             return Mt.util.equals(_o, e, t)
         }
     }
-    class fo extends Oe {
+    class fo extends ProtobufMessageBase {
         secret = "";
         teamId = "";
         addFeatures = [];
@@ -14965,7 +14965,7 @@
             return Mt.util.equals(fo, e, t)
         }
     }
-    class Eo extends Oe {
+    class Eo extends ProtobufMessageBase {
         secret = "";
         teamId = "";
         features = [];
@@ -15004,7 +15004,7 @@
             return Mt.util.equals(Eo, e, t)
         }
     }
-    class To extends Oe {
+    class To extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15024,7 +15024,7 @@
             return Mt.util.equals(To, e, t)
         }
     }
-    class po extends Oe {
+    class po extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15044,7 +15044,7 @@
             return Mt.util.equals(po, e, t)
         }
     }
-    class So extends Oe {
+    class So extends ProtobufMessageBase {
         secret = "";
         apiKeys = [];
         features = [];
@@ -15084,7 +15084,7 @@
             return Mt.util.equals(So, e, t)
         }
     }
-    class go extends Oe {
+    class go extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15104,7 +15104,7 @@
             return Mt.util.equals(go, e, t)
         }
     }
-    class No extends Oe {
+    class No extends ProtobufMessageBase {
         authToken = "";
         permission = fn.UNSPECIFIED;
         constructor(e) {
@@ -15136,7 +15136,7 @@
             return Mt.util.equals(No, e, t)
         }
     }
-    class Io extends Oe {
+    class Io extends ProtobufMessageBase {
         id = "";
         name = "";
         constructor(e) {
@@ -15168,7 +15168,7 @@
             return Mt.util.equals(Io, e, t)
         }
     }
-    class yo extends Oe {
+    class yo extends ProtobufMessageBase {
         groups = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15195,7 +15195,7 @@
             return Mt.util.equals(yo, e, t)
         }
     }
-    class wo extends Oe {
+    class wo extends ProtobufMessageBase {
         authToken = "";
         name = "";
         role = "";
@@ -15239,7 +15239,7 @@
             return Mt.util.equals(wo, e, t)
         }
     }
-    class Co extends Oe {
+    class Co extends ProtobufMessageBase {
         secret = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15265,7 +15265,7 @@
             return Mt.util.equals(Co, e, t)
         }
     }
-    class ko extends Oe {
+    class ko extends ProtobufMessageBase {
         authToken = "";
         serviceKeyId = "";
         name = "";
@@ -15315,7 +15315,7 @@
             return Mt.util.equals(ko, e, t)
         }
     }
-    class Oo extends Oe {
+    class Oo extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15335,7 +15335,7 @@
             return Mt.util.equals(Oo, e, t)
         }
     }
-    class Po extends Oe {
+    class Po extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15361,7 +15361,7 @@
             return Mt.util.equals(Po, e, t)
         }
     }
-    class Jo extends Oe {
+    class Jo extends ProtobufMessageBase {
         id = "";
         name = "";
         roleId = "";
@@ -15410,7 +15410,7 @@
             return Mt.util.equals(Jo, e, t)
         }
     }
-    class Ro extends Oe {
+    class Ro extends ProtobufMessageBase {
         secrets = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15437,7 +15437,7 @@
             return Mt.util.equals(Ro, e, t)
         }
     }
-    class Ao extends Oe {
+    class Ao extends ProtobufMessageBase {
         authToken = "";
         secretId = "";
         constructor(e) {
@@ -15469,7 +15469,7 @@
             return Mt.util.equals(Ao, e, t)
         }
     }
-    class Lo extends Oe {
+    class Lo extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15489,7 +15489,7 @@
             return Mt.util.equals(Lo, e, t)
         }
     }
-    class xo extends Oe {
+    class xo extends ProtobufMessageBase {
         apiKey = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15515,7 +15515,7 @@
             return Mt.util.equals(xo, e, t)
         }
     }
-    class ho extends Oe {
+    class ho extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15540,7 +15540,7 @@
             return Mt.util.equals(ho, e, t)
         }
     }
-    class Do extends Oe {
+    class Do extends ProtobufMessageBase {
         adminName = "";
         teamName = "";
         constructor(e) {
@@ -15577,7 +15577,7 @@
             return Mt.util.equals(Do, e, t)
         }
     }
-    class Uo extends Oe {
+    class Uo extends ProtobufMessageBase {
         authToken = "";
         githubRefreshToken = "";
         constructor(e) {
@@ -15614,7 +15614,7 @@
             return Mt.util.equals(Uo, e, t)
         }
     }
-    class Bo extends Oe {
+    class Bo extends ProtobufMessageBase {
         githubAccessToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15645,7 +15645,7 @@
             return Mt.util.equals(Bo, e, t)
         }
     }
-    class Fo extends Oe {
+    class Fo extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15671,7 +15671,7 @@
             return Mt.util.equals(Fo, e, t)
         }
     }
-    class Mo extends Oe {
+    class Mo extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15691,7 +15691,7 @@
             return Mt.util.equals(Mo, e, t)
         }
     }
-    class qo extends Oe {
+    class qo extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15717,7 +15717,7 @@
             return Mt.util.equals(qo, e, t)
         }
     }
-    class bo extends Oe {
+    class bo extends ProtobufMessageBase {
         connected = !1;
         username = "";
         constructor(e) {
@@ -15754,7 +15754,7 @@
             return Mt.util.equals(bo, e, t)
         }
     }
-    class Go extends Oe {
+    class Go extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15780,7 +15780,7 @@
             return Mt.util.equals(Go, e, t)
         }
     }
-    class vo extends Oe {
+    class vo extends ProtobufMessageBase {
         accessToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -15811,7 +15811,7 @@
             return Mt.util.equals(vo, e, t)
         }
     }
-    class Ho extends Oe {
+    class Ho extends ProtobufMessageBase {
         authToken = "";
         apiKey = "";
         disableCodeiumAccess = !1;
@@ -15849,7 +15849,7 @@
             return Mt.util.equals(Ho, e, t)
         }
     }
-    class Xo extends Oe {
+    class Xo extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15869,7 +15869,7 @@
             return Mt.util.equals(Xo, e, t)
         }
     }
-    class Vo extends Oe {
+    class Vo extends ProtobufMessageBase {
         authToken = "";
         name = "";
         permissions = [];
@@ -15908,7 +15908,7 @@
             return Mt.util.equals(Vo, e, t)
         }
     }
-    class Yo extends Oe {
+    class Yo extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15928,7 +15928,7 @@
             return Mt.util.equals(Yo, e, t)
         }
     }
-    class Ko extends Oe {
+    class Ko extends ProtobufMessageBase {
         authToken = "";
         roleId = "";
         constructor(e) {
@@ -15960,7 +15960,7 @@
             return Mt.util.equals(Ko, e, t)
         }
     }
-    class Wo extends Oe {
+    class Wo extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -15980,7 +15980,7 @@
             return Mt.util.equals(Wo, e, t)
         }
     }
-    class zo extends Oe {
+    class zo extends ProtobufMessageBase {
         authToken = "";
         roleId = "";
         permissions = [];
@@ -16019,7 +16019,7 @@
             return Mt.util.equals(zo, e, t)
         }
     }
-    class jo extends Oe {
+    class jo extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -16039,7 +16039,7 @@
             return Mt.util.equals(jo, e, t)
         }
     }
-    class $o extends Oe {
+    class $o extends ProtobufMessageBase {
         authToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -16065,7 +16065,7 @@
             return Mt.util.equals($o, e, t)
         }
     }
-    class Qo extends Oe {
+    class Qo extends ProtobufMessageBase {
         roleId = "";
         name = "";
         permissions = [];
@@ -16110,7 +16110,7 @@
             return Mt.util.equals(Qo, e, t)
         }
     }
-    class Zo extends Oe {
+    class Zo extends ProtobufMessageBase {
         roles = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -16137,7 +16137,7 @@
             return Mt.util.equals(Zo, e, t)
         }
     }
-    class em extends Oe {
+    class em extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -16157,7 +16157,7 @@
             return Mt.util.equals(em, e, t)
         }
     }
-    class tm extends Oe {
+    class tm extends ProtobufMessageBase {
         billingMonths = 0;
         billingYears = 0;
         mucsCharged = 0;
@@ -16201,7 +16201,7 @@
             return Mt.util.equals(tm, e, t)
         }
     }
-    class nm extends Oe {
+    class nm extends ProtobufMessageBase {
         mucsLeft = 0;
         mucsUsed = 0;
         isMucsEnabled = !1;
@@ -16743,7 +16743,7 @@
             no: 4,
             name: "DIFF_TYPE_TMP_SUPERCOMPLETE"
         }]);
-    class Hm extends Oe {
+    class Hm extends ProtobufMessageBase {
         lines = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -16770,7 +16770,7 @@
             return Mt.util.equals(Hm, e, t)
         }
     }
-    class Xm extends Oe {
+    class Xm extends ProtobufMessageBase {
         text = "";
         type = rm.UNSPECIFIED;
         constructor(e) {
@@ -16802,7 +16802,7 @@
             return Mt.util.equals(Xm, e, t)
         }
     }
-    class Vm extends Oe {
+    class Vm extends ProtobufMessageBase {
         startLine = 0;
         endLine = 0;
         fromLanguage = un.UNSPECIFIED;
@@ -16851,7 +16851,7 @@
             return Mt.util.equals(Vm, e, t)
         }
     }
-    class Ym extends Oe {
+    class Ym extends ProtobufMessageBase {
         text = "";
         type = sm.UNSPECIFIED;
         constructor(e) {
@@ -16883,7 +16883,7 @@
             return Mt.util.equals(Ym, e, t)
         }
     }
-    class Km extends Oe {
+    class Km extends ProtobufMessageBase {
         changes = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -16910,7 +16910,7 @@
             return Mt.util.equals(Km, e, t)
         }
     }
-    class Wm extends Oe {
+    class Wm extends ProtobufMessageBase {
         text = "";
         type = sm.UNSPECIFIED;
         constructor(e) {
@@ -16947,7 +16947,7 @@
             return Mt.util.equals(Wm, e, t)
         }
     }
-    class zm extends Oe {
+    class zm extends ProtobufMessageBase {
         lines = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -17009,7 +17009,7 @@
             return proto3.util.equals(jm, e, t)
         }
     }
-    class $m extends Oe {
+    class $m extends ProtobufMessageBase {
         diffs = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -17113,7 +17113,7 @@
             no: 1,
             name: "CACHE_CONTROL_TYPE_EPHEMERAL"
         }]);
-    class Qm extends Oe {
+    class Qm extends ProtobufMessageBase {
         rawSource = "";
         startLine = 0;
         startCol = 0;
@@ -17163,7 +17163,7 @@
             return Mt.util.equals(Qm, e, t)
         }
     }
-    class Zm extends Oe {
+    class Zm extends ProtobufMessageBase {
         responseStreamLatencyMs = Fe.zero;
         refreshContextLatencyMs = Fe.zero;
         shouldGetLocalContextForChatLatencyMs = Fe.zero;
@@ -17276,7 +17276,7 @@
             return Mt.util.equals(Zm, e, t)
         }
     }
-    class eu extends Oe {
+    class eu extends ProtobufMessageBase {
         text = "";
         items = [];
         constructor(e) {
@@ -17309,7 +17309,7 @@
             return Mt.util.equals(eu, e, t)
         }
     }
-    class tu extends Oe {
+    class tu extends ProtobufMessageBase {
         language = un.UNSPECIFIED;
         filePathMigrateMeToUri = "";
         uri = "";
@@ -17352,7 +17352,7 @@
             return Mt.util.equals(tu, e, t)
         }
     }
-    class nu extends Oe {
+    class nu extends ProtobufMessageBase {
         language = un.UNSPECIFIED;
         filePathMigrateMeToUri = "";
         refactorDescription = "";
@@ -17401,7 +17401,7 @@
             return Mt.util.equals(nu, e, t)
         }
     }
-    class au extends Oe {
+    class au extends ProtobufMessageBase {
         language = un.UNSPECIFIED;
         filePathMigrateMeToUri = "";
         uri = "";
@@ -17450,7 +17450,7 @@
             return Mt.util.equals(au, e, t)
         }
     }
-    class ru extends Oe {
+    class ru extends ProtobufMessageBase {
         language = un.UNSPECIFIED;
         filePathMigrateMeToUri = "";
         uri = "";
@@ -17493,7 +17493,7 @@
             return Mt.util.equals(ru, e, t)
         }
     }
-    class su extends Oe {
+    class su extends ProtobufMessageBase {
         language = un.UNSPECIFIED;
         filePathMigrateMeToUri = "";
         uri = "";
@@ -17536,7 +17536,7 @@
             return Mt.util.equals(su, e, t)
         }
     }
-    class iu extends Oe {
+    class iu extends ProtobufMessageBase {
         language = un.UNSPECIFIED;
         filePathMigrateMeToUri = "";
         uri = "";
@@ -17579,7 +17579,7 @@
             return Mt.util.equals(iu, e, t)
         }
     }
-    class ou extends Oe {
+    class ou extends ProtobufMessageBase {
         language = un.UNSPECIFIED;
         filePathMigrateMeToUri = "";
         uri = "";
@@ -17628,7 +17628,7 @@
             return Mt.util.equals(ou, e, t)
         }
     }
-    class mu extends Oe {
+    class mu extends ProtobufMessageBase {
         diagnosticMessage = "";
         surroundingCodeSnippet = "";
         language = un.UNSPECIFIED;
@@ -17689,7 +17689,7 @@
             return Mt.util.equals(mu, e, t)
         }
     }
-    class uu extends Oe {
+    class uu extends ProtobufMessageBase {
         instruction = "";
         language = un.UNSPECIFIED;
         filePathMigrateMeToUri = "";
@@ -17739,7 +17739,7 @@
             return Mt.util.equals(uu, e, t)
         }
     }
-    class cu extends Oe {
+    class cu extends ProtobufMessageBase {
         query = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -17765,7 +17765,7 @@
             return Mt.util.equals(cu, e, t)
         }
     }
-    class lu extends Oe {
+    class lu extends ProtobufMessageBase {
         diffOutline = "";
         language = un.UNSPECIFIED;
         constructor(e) {
@@ -17802,7 +17802,7 @@
             return Mt.util.equals(lu, e, t)
         }
     }
-    class du extends Oe {
+    class du extends ProtobufMessageBase {
         intent = {
             case: void 0
         };
@@ -17903,7 +17903,7 @@
             return Mt.util.equals(du, e, t)
         }
     }
-    class _u extends Oe {
+    class _u extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -17923,7 +17923,7 @@
             return Mt.util.equals(_u, e, t)
         }
     }
-    class fu extends Oe {
+    class fu extends ProtobufMessageBase {
         filePathMigrateMeToUri = "";
         uri = "";
         language = un.UNSPECIFIED;
@@ -17978,7 +17978,7 @@
             return Mt.util.equals(fu, e, t)
         }
     }
-    class Eu extends Oe {
+    class Eu extends ProtobufMessageBase {
         text = "";
         displayText = "";
         constructor(e) {
@@ -18010,7 +18010,7 @@
             return Mt.util.equals(Eu, e, t)
         }
     }
-    class Tu extends Oe {
+    class Tu extends ProtobufMessageBase {
         isLoading = !1;
         isRelevant = !1;
         querySuggestions = [];
@@ -18049,7 +18049,7 @@
             return Mt.util.equals(Tu, e, t)
         }
     }
-    class pu extends Oe {
+    class pu extends ProtobufMessageBase {
         status = {
             case: void 0
         };
@@ -18078,7 +18078,7 @@
             return Mt.util.equals(pu, e, t)
         }
     }
-    class Su extends Oe {
+    class Su extends ProtobufMessageBase {
         text = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -18104,7 +18104,7 @@
             return Mt.util.equals(Su, e, t)
         }
     }
-    class gu extends Oe {
+    class gu extends ProtobufMessageBase {
         action = {
             case: void 0
         };
@@ -18176,7 +18176,7 @@
             return Mt.util.equals(gu, e, t)
         }
     }
-    class Nu extends Oe {
+    class Nu extends ProtobufMessageBase {
         messageId = "";
         source = cn.UNSPECIFIED;
         conversationId = "";
@@ -18290,7 +18290,7 @@
             return proto3.util.equals(Iu, e, t)
         }
     }
-    class yu extends Oe {
+    class yu extends ProtobufMessageBase {
         messageId = "";
         source = cn.UNSPECIFIED;
         prompt = "";
@@ -18364,7 +18364,7 @@
             return Mt.util.equals(yu, e, t)
         }
     }
-    class wu extends Oe {
+    class wu extends ProtobufMessageBase {
         type = um.UNSPECIFIED;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -18390,7 +18390,7 @@
             return Mt.util.equals(wu, e, t)
         }
     }
-    class Cu extends Oe {
+    class Cu extends ProtobufMessageBase {
         name = "";
         description = "";
         jsonSchemaString = "";
@@ -18434,7 +18434,7 @@
             return Mt.util.equals(Cu, e, t)
         }
     }
-    class ku extends Oe {
+    class ku extends ProtobufMessageBase {
         choice = {
             case: void 0
         };
@@ -18542,7 +18542,7 @@
             return proto3.util.equals(Pu, e, t)
         }
     }
-    class Ju extends Oe {
+    class Ju extends ProtobufMessageBase {
         chatMessages = [];
         openDocumentPathsMigrateMeToUris = [];
         openDocumentUris = [];
@@ -18642,7 +18642,7 @@
             return Mt.util.equals(Ju, e, t)
         }
     }
-    class Ru extends Oe {
+    class Ru extends ProtobufMessageBase {
         experimentKey = Yt.UNSPECIFIED;
         enabled = !1;
         constructor(e) {
@@ -18831,7 +18831,7 @@
             return proto3.util.equals(Au, e, t)
         }
     }
-    class Lu extends Oe {
+    class Lu extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -18856,7 +18856,7 @@
             return Mt.util.equals(Lu, e, t)
         }
     }
-    class xu extends Oe {
+    class xu extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -18881,7 +18881,7 @@
             return Mt.util.equals(xu, e, t)
         }
     }
-    class hu extends Oe {
+    class hu extends ProtobufMessageBase {
         chatMessages = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -18908,7 +18908,7 @@
             return Mt.util.equals(hu, e, t)
         }
     }
-    class Du extends Oe {
+    class Du extends ProtobufMessageBase {
         otherOpenDocuments = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -18935,7 +18935,7 @@
             return Mt.util.equals(Du, e, t)
         }
     }
-    class Uu extends Oe {
+    class Uu extends ProtobufMessageBase {
         oracleItems = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -18962,7 +18962,7 @@
             return Mt.util.equals(Uu, e, t)
         }
     }
-    class Bu extends Oe {
+    class Bu extends ProtobufMessageBase {
         scope = {
             case: void 0
         };
@@ -18997,7 +18997,7 @@
             return Mt.util.equals(Bu, e, t)
         }
     }
-    class Fu extends Oe {
+    class Fu extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -19022,7 +19022,7 @@
             return Mt.util.equals(Fu, e, t)
         }
     }
-    class Mu extends Oe {
+    class Mu extends ProtobufMessageBase {
         actualNodeChange = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -19058,7 +19058,7 @@
             return Mt.util.equals(Mu, e, t)
         }
     }
-    class qu extends Oe {
+    class qu extends ProtobufMessageBase {
         contextSources = [];
         contextType = pn.UNSPECIFIED;
         scorer = "";
@@ -19119,7 +19119,7 @@
             return Mt.util.equals(qu, e, t)
         }
     }
-    class bu extends Oe {
+    class bu extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -19149,7 +19149,7 @@
             return Mt.util.equals(bu, e, t)
         }
     }
-    class Gu extends Oe {
+    class Gu extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -19210,7 +19210,7 @@
             return proto3.util.equals(vu, e, t)
         }
     }
-    class Hu extends Oe {
+    class Hu extends ProtobufMessageBase {
         relativeWeight = 0;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -19278,7 +19278,7 @@
             return proto3.util.equals(Xu, e, t)
         }
     }
-    class Vu extends Oe {
+    class Vu extends ProtobufMessageBase {
         cciPerSourceBytes = Fe.zero;
         activeDocumentBytes = Fe.zero;
         otherOpenDocumentsBytes = Fe.zero;
@@ -19316,7 +19316,7 @@
             return Mt.util.equals(Vu, e, t)
         }
     }
-    class Yu extends Oe {
+    class Yu extends ProtobufMessageBase {
         allCcisBytes = Fe.zero;
         numCcisTracked = Fe.zero;
         termFrequencyMapBytes = Fe.zero;
@@ -19414,7 +19414,7 @@
             return proto3.util.equals(Ku, e, t)
         }
     }
-    class Wu extends Oe {
+    class Wu extends ProtobufMessageBase {
         retrievedCciWithSubranges = [];
         openDocuments = [];
         constructor(e) {
@@ -19468,7 +19468,7 @@
             return Mt.util.equals(Wu, e, t)
         }
     }
-    class zu extends Oe {
+    class zu extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -19556,7 +19556,7 @@
             no: 9,
             name: "INDEXING_STATUS_CANCELED"
         }]);
-    class ju extends Oe {
+    class ju extends ProtobufMessageBase {
         version = 0;
         enterpriseVersion = 0;
         constructor(e) {
@@ -19588,7 +19588,7 @@
             return Mt.util.equals(ju, e, t)
         }
     }
-    class $u extends Oe {
+    class $u extends ProtobufMessageBase {
         cciTimeoutSecs = 0;
         indexMode = _m.UNSPECIFIED;
         constructor(e) {
@@ -19625,7 +19625,7 @@
             return Mt.util.equals($u, e, t)
         }
     }
-    class Qu extends Oe {
+    class Qu extends ProtobufMessageBase {
         gitUrl = "";
         scmProvider = Tn.UNSPECIFIED;
         storeSnippets = !1;
@@ -19693,7 +19693,7 @@
             return Mt.util.equals(Qu, e, t)
         }
     }
-    class Zu extends Oe {
+    class Zu extends ProtobufMessageBase {
         branchName = "";
         maxNumAutoIndexes = 0;
         constructor(e) {
@@ -19730,7 +19730,7 @@
             return Mt.util.equals(Zu, e, t)
         }
     }
-    class ec extends Oe {
+    class ec extends ProtobufMessageBase {
         enablePrune = !1;
         enableSmallestRepoFirst = !1;
         enableRoundRobin = !1;
@@ -19778,7 +19778,7 @@
             return Mt.util.equals(ec, e, t)
         }
     }
-    class tc extends Oe {
+    class tc extends ProtobufMessageBase {
         numEmbeddings = Fe.zero;
         indexBytesCount = Fe.zero;
         constructor(e) {
@@ -19810,7 +19810,7 @@
             return Mt.util.equals(tc, e, t)
         }
     }
-    class nc extends Oe {
+    class nc extends ProtobufMessageBase {
         progress = 0;
         text = "";
         constructor(e) {
@@ -19847,7 +19847,7 @@
             return Mt.util.equals(nc, e, t)
         }
     }
-    class ac extends Oe {
+    class ac extends ProtobufMessageBase {
         id = "";
         repoName = "";
         workspace = "";
@@ -19955,7 +19955,7 @@
             return Mt.util.equals(ac, e, t)
         }
     }
-    class rc extends Oe {
+    class rc extends ProtobufMessageBase {
         size = Fe.zero;
         fileCount = Fe.zero;
         sizeNoIgnore = Fe.zero;
@@ -19999,7 +19999,7 @@
             return Mt.util.equals(rc, e, t)
         }
     }
-    class sc extends Oe {
+    class sc extends ProtobufMessageBase {
         repoName = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -20045,7 +20045,7 @@
             return Mt.util.equals(sc, e, t)
         }
     }
-    class ic extends Oe {
+    class ic extends ProtobufMessageBase {
         version = {
             case: void 0
         };
@@ -20086,7 +20086,7 @@
             return Mt.util.equals(ic, e, t)
         }
     }
-    class oc extends Oe {
+    class oc extends ProtobufMessageBase {
         authToken = "";
         authUid = "";
         serviceKey = "";
@@ -20418,7 +20418,7 @@
             return proto3.util.equals(pc, e, t)
         }
     }
-    class Sc extends Oe {
+    class Sc extends ProtobufMessageBase {
         repoName = "";
         groupId = "";
         constructor(e) {
@@ -20626,7 +20626,7 @@
             return proto3.util.equals(Cc, e, t)
         }
     }
-    class kc extends Oe {
+    class kc extends ProtobufMessageBase {
         indexId = "";
         cciCount = Fe.zero;
         snippetCount = Fe.zero;
@@ -21369,7 +21369,7 @@
             return proto3.util.equals(zc, e, t)
         }
     }
-    class jc extends Oe {
+    class jc extends ProtobufMessageBase {
         excludedFiles = [];
         filterPaths = [];
         constructor(e) {
@@ -21534,7 +21534,7 @@
             return proto3.util.equals(Zc, e, t)
         }
     }
-    class el extends Oe {
+    class el extends ProtobufMessageBase {
         score = 0;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -21657,7 +21657,7 @@
             return proto3.util.equals(al, e, t)
         }
     }
-    class rl extends Oe {
+    class rl extends ProtobufMessageBase {
         repositoryName = "";
         fileCount = Fe.zero;
         codeContextItemCount = Fe.zero;
@@ -21766,7 +21766,7 @@
             return proto3.util.equals(sl, e, t)
         }
     }
-    class il extends Oe {
+    class il extends ProtobufMessageBase {
         absoluteUri = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -21792,7 +21792,7 @@
             return Mt.util.equals(il, e, t)
         }
     }
-    class ol extends Oe {
+    class ol extends ProtobufMessageBase {
         absoluteUri = "";
         paths = [];
         workspaceUri = "";
@@ -21831,7 +21831,7 @@
             return Mt.util.equals(ol, e, t)
         }
     }
-    class ml extends Oe {
+    class ml extends ProtobufMessageBase {
         absoluteUri = "";
         paths = [];
         constructor(e) {
@@ -21874,7 +21874,7 @@
             return Mt.util.equals(ml, e, t)
         }
     }
-    class ul extends Oe {
+    class ul extends ProtobufMessageBase {
         addWorkspaceUid = Fe.zero;
         addWorkspaceQueueUid = Fe.zero;
         constructor(e) {
@@ -21906,7 +21906,7 @@
             return Mt.util.equals(ul, e, t)
         }
     }
-    class cl extends Oe {
+    class cl extends ProtobufMessageBase {
         addWorkspaceUid = Fe.zero;
         addWorkspaceQueueUid = Fe.zero;
         workspaceUri = "";
@@ -21956,7 +21956,7 @@
             return Mt.util.equals(cl, e, t)
         }
     }
-    class ll extends Oe {
+    class ll extends ProtobufMessageBase {
         workspaceUri = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -21982,7 +21982,7 @@
             return Mt.util.equals(ll, e, t)
         }
     }
-    class dl extends Oe {
+    class dl extends ProtobufMessageBase {
         workspaceUri = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -22008,7 +22008,7 @@
             return Mt.util.equals(dl, e, t)
         }
     }
-    class _l extends Oe {
+    class _l extends ProtobufMessageBase {
         sha = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -22123,7 +22123,7 @@
             no: 10,
             name: "RETRIEVER_TYPE_GRAPH_CLUSTERS"
         }]);
-    class fl extends Oe {
+    class fl extends ProtobufMessageBase {
         relevanceReason = Em.UNSPECIFIED;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -22154,7 +22154,7 @@
             return Mt.util.equals(fl, e, t)
         }
     }
-    class El extends Oe {
+    class El extends ProtobufMessageBase {
         intent = "";
         relevanceScore = 0;
         rationale = "";
@@ -22192,7 +22192,7 @@
             return Mt.util.equals(El, e, t)
         }
     }
-    class Tl extends Oe {
+    class Tl extends ProtobufMessageBase {
         relevantCodeContexts = [];
         descriptionByType = {};
         intentRelevance = [];
@@ -22246,7 +22246,7 @@
             return Mt.util.equals(Tl, e, t)
         }
     }
-    class pl extends Oe {
+    class pl extends ProtobufMessageBase {
         startFilePathMigrateMeToUri = "";
         startFileUri = "";
         startFileRelPath = "";
@@ -22328,7 +22328,7 @@
             return Mt.util.equals(pl, e, t)
         }
     }
-    class Sl extends Oe {
+    class Sl extends ProtobufMessageBase {
         intent = "";
         intentType = pm.UNSPECIFIED;
         includeTestFiles = !1;
@@ -22366,7 +22366,7 @@
             return Mt.util.equals(Sl, e, t)
         }
     }
-    class gl extends Oe {
+    class gl extends ProtobufMessageBase {
         fileChanges = [];
         testFileChanges = [];
         intent = "";
@@ -22439,7 +22439,7 @@
             return Mt.util.equals(gl, e, t)
         }
     }
-    class Nl extends Oe {
+    class Nl extends ProtobufMessageBase {
         commitHash = "";
         parentCommitHash = "";
         constructor(e) {
@@ -22683,7 +22683,7 @@
             return proto3.util.equals(kl, e, t)
         }
     }
-    class Ol extends Oe {
+    class Ol extends ProtobufMessageBase {
         relevanceScore = 0;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -22714,7 +22714,7 @@
             return Mt.util.equals(Ol, e, t)
         }
     }
-    class Pl extends Oe {
+    class Pl extends ProtobufMessageBase {
         relevant = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -22750,7 +22750,7 @@
             return Mt.util.equals(Pl, e, t)
         }
     }
-    class Jl extends Oe {
+    class Jl extends ProtobufMessageBase {
         type = Sm.UNSPECIFIED;
         modelName = "";
         constructor(e) {
@@ -22782,7 +22782,7 @@
             return Mt.util.equals(Jl, e, t)
         }
     }
-    class Rl extends Oe {
+    class Rl extends ProtobufMessageBase {
         precisionScore = 0;
         recallScore = 0;
         accuracyScore = 0;
@@ -22886,7 +22886,7 @@
             return proto3.util.equals(Al, e, t)
         }
     }
-    class Ll extends Oe {
+    class Ll extends ProtobufMessageBase {
         id = 0;
         file = "";
 
@@ -23026,7 +23026,7 @@
             no: 7,
             name: "JOB_STATUS_RETRYABLE"
         }]);
-    class hl extends Oe {
+    class hl extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -23056,7 +23056,7 @@
             return Mt.util.equals(hl, e, t)
         }
     }
-    class Dl extends Oe {
+    class Dl extends ProtobufMessageBase {
         authUid = "";
         email = "";
         name = "";
@@ -23709,7 +23709,7 @@
             return proto3.util.equals(ed, e, t)
         }
     }
-    class td extends Oe {
+    class td extends ProtobufMessageBase {
         documentId = "";
         text = "";
         constructor(e) {
@@ -23741,7 +23741,7 @@
             return Mt.util.equals(td, e, t)
         }
     }
-    class nd extends Oe {
+    class nd extends ProtobufMessageBase {
         score = 0;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -24203,7 +24203,7 @@
             return proto3.util.equals(Td, e, t)
         }
     }
-    class pd extends Oe {
+    class pd extends ProtobufMessageBase {
         connector = Nm.UNSPECIFIED;
         initialized = !1;
         constructor(e) {
@@ -24294,7 +24294,7 @@
             return proto3.util.equals(gd, e, t)
         }
     }
-    class Nd extends Oe {
+    class Nd extends ProtobufMessageBase {
         connector = Nm.UNSPECIFIED;
         id = Fe.zero;
         status = Im.UNSPECIFIED;
@@ -24391,7 +24391,7 @@
             return proto3.util.equals(yd, e, t)
         }
     }
-    class wd extends Oe {
+    class wd extends ProtobufMessageBase {
         datasetId = "";
         previousMessageDatasetId = "";
         type = "";
@@ -24800,7 +24800,7 @@
             no: 1,
             name: "CORTEX_STEP_COMPILE_TOOL_PYLINT"
         }]);
-    class Cd extends Oe {
+    class Cd extends ProtobufMessageBase {
         component = {
             case: void 0
         };
@@ -24835,7 +24835,7 @@
             return Mt.util.equals(Cd, e, t)
         }
     }
-    class kd extends Oe {
+    class kd extends ProtobufMessageBase {
         planId = "";
         goal = "";
         actionStates = [];
@@ -24930,7 +24930,7 @@
             return Mt.util.equals(kd, e, t)
         }
     }
-    class Od extends Oe {
+    class Od extends ProtobufMessageBase {
         steps = [];
         outlines = [];
         currentStepIndex = 0;
@@ -24975,7 +24975,7 @@
             return Mt.util.equals(Od, e, t)
         }
     }
-    class Pd extends Oe {
+    class Pd extends ProtobufMessageBase {
         stepNumber = 0;
         actionName = "";
         jsonArgs = "";
@@ -25020,7 +25020,7 @@
             return Mt.util.equals(Pd, e, t)
         }
     }
-    class Jd extends Oe {
+    class Jd extends ProtobufMessageBase {
         step = {
             case: void 0
         };
@@ -25049,7 +25049,7 @@
             return Mt.util.equals(Jd, e, t)
         }
     }
-    class Rd extends Oe {
+    class Rd extends ProtobufMessageBase {
         totalRetrievedCount = 0;
         topRetrievedItems = [];
         fullCciList = [];
@@ -25094,7 +25094,7 @@
             return Mt.util.equals(Rd, e, t)
         }
     }
-    class Ad extends Oe {
+    class Ad extends ProtobufMessageBase {
         query = "";
         filesScanned = [];
         constructor(e) {
@@ -25127,7 +25127,7 @@
             return Mt.util.equals(Ad, e, t)
         }
     }
-    class Ld extends Oe {
+    class Ld extends ProtobufMessageBase {
         requestSource = Cm.UNSPECIFIED;
         goal = "";
         error = "";
@@ -25180,7 +25180,7 @@
             return Mt.util.equals(Ld, e, t)
         }
     }
-    class xd extends Oe {
+    class xd extends ProtobufMessageBase {
         done = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -25216,7 +25216,7 @@
             return Mt.util.equals(xd, e, t)
         }
     }
-    class hd extends Oe {
+    class hd extends ProtobufMessageBase {
         goal = "";
         nextSteps = [];
         targetDirectories = [];
@@ -25270,7 +25270,7 @@
             return Mt.util.equals(hd, e, t)
         }
     }
-    class Dd extends Oe {
+    class Dd extends ProtobufMessageBase {
         spec = {
             case: void 0
         };
@@ -25318,7 +25318,7 @@
             return Mt.util.equals(Dd, e, t)
         }
     }
-    class Ud extends Oe {
+    class Ud extends ProtobufMessageBase {
         instruction = "";
         referenceCcis = [];
         constructor(e) {
@@ -25356,7 +25356,7 @@
             return Mt.util.equals(Ud, e, t)
         }
     }
-    class Bd extends Oe {
+    class Bd extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -25381,7 +25381,7 @@
             return Mt.util.equals(Bd, e, t)
         }
     }
-    class Fd extends Oe {
+    class Fd extends ProtobufMessageBase {
         absoluteUri = "";
         startLine = 0;
         endLine = 0;
@@ -25419,7 +25419,7 @@
             return Mt.util.equals(Fd, e, t)
         }
     }
-    class Md extends Oe {
+    class Md extends ProtobufMessageBase {
         instruction = "";
         isEdit = !1;
         useFastApply = !1;
@@ -25491,7 +25491,7 @@
             return Mt.util.equals(Md, e, t)
         }
     }
-    class qd extends Oe {
+    class qd extends ProtobufMessageBase {
         stepId = "";
         status = ym.UNSPECIFIED;
         error = "";
@@ -25551,7 +25551,7 @@
             return Mt.util.equals(qd, e, t)
         }
     }
-    class bd extends Oe {
+    class bd extends ProtobufMessageBase {
         result = {
             case: void 0
         };
@@ -25580,7 +25580,7 @@
             return Mt.util.equals(bd, e, t)
         }
     }
-    class Gd extends Oe {
+    class Gd extends ProtobufMessageBase {
         entries = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -25607,7 +25607,7 @@
             return Mt.util.equals(Gd, e, t)
         }
     }
-    class vd extends Oe {
+    class vd extends ProtobufMessageBase {
         key = "";
         value = "";
         constructor(e) {
@@ -25639,7 +25639,7 @@
             return Mt.util.equals(vd, e, t)
         }
     }
-    class Hd extends Oe {
+    class Hd extends ProtobufMessageBase {
         absolutePathMigrateMeToUri = "";
         contextPrefix = "";
         contextSuffix = "";
@@ -25724,7 +25724,7 @@
             return Mt.util.equals(Hd, e, t)
         }
     }
-    class Xd extends Oe {
+    class Xd extends ProtobufMessageBase {
         totalRetrievedCount = 0;
         topRetrievedItems = [];
         constructor(e) {
@@ -25817,7 +25817,7 @@
             return proto3.util.equals(Vd, e, t)
         }
     }
-    class Yd extends Oe {
+    class Yd extends ProtobufMessageBase {
         rawResponse = "";
         planTokens = 0;
         planCost = 0;
@@ -25868,7 +25868,7 @@
             return Mt.util.equals(Yd, e, t)
         }
     }
-    class Kd extends Oe {
+    class Kd extends ProtobufMessageBase {
         maxNominalContinuations = 0;
         maxErrorContinuations = 0;
         constructor(e) {
@@ -25905,7 +25905,7 @@
             return Mt.util.equals(Kd, e, t)
         }
     }
-    class Wd extends Oe {
+    class Wd extends ProtobufMessageBase {
         recordTelemetry = !1;
         addDistillNode = !1;
         mQueryModelName = "";
@@ -25986,7 +25986,7 @@
             return Mt.util.equals(Wd, e, t)
         }
     }
-    class zd extends Oe {
+    class zd extends ProtobufMessageBase {
         planModelName = "";
         maxTokensPerPlan = 0;
         maxTokenFraction = 0;
@@ -26052,7 +26052,7 @@
             return Mt.util.equals(zd, e, t)
         }
     }
-    class jd extends Oe {
+    class jd extends ProtobufMessageBase {
         cortexId = "";
         done = !1;
         constructor(e) {
@@ -26163,7 +26163,7 @@
             return proto3.util.equals($d, e, t)
         }
     }
-    class Qd extends Oe {
+    class Qd extends ProtobufMessageBase {
         trajectoryId = "";
         cascadeId = "";
         trajectoryType = km.UNSPECIFIED;
@@ -26222,7 +26222,7 @@
             return Mt.util.equals(Qd, e, t)
         }
     }
-    class Zd extends Oe {
+    class Zd extends ProtobufMessageBase {
         summary = "";
         stepCount = 0;
         constructor(e) {
@@ -26259,7 +26259,7 @@
             return Mt.util.equals(Zd, e, t)
         }
     }
-    class e_ extends Oe {
+    class e_ extends ProtobufMessageBase {
         trajectoryId = "";
         stepIndex = 0;
         constructor(e) {
@@ -26291,7 +26291,7 @@
             return Mt.util.equals(e_, e, t)
         }
     }
-    class t_ extends Oe {
+    class t_ extends ProtobufMessageBase {
         workspaceUri = "";
         gitRootUri = "";
         branchName = "";
@@ -26350,7 +26350,7 @@
             return Mt.util.equals(t_, e, t)
         }
     }
-    class n_ extends Oe {
+    class n_ extends ProtobufMessageBase {
         stepIndices = [];
         metadata = {
             case: void 0
@@ -26391,7 +26391,7 @@
             return Mt.util.equals(n_, e, t)
         }
     }
-    class a_ extends Oe {
+    class a_ extends ProtobufMessageBase {
         systemPrompt = "";
         messagePrompts = [];
         model = Wt.MODEL_UNSPECIFIED;
@@ -26464,7 +26464,7 @@
             return Mt.util.equals(a_, e, t)
         }
     }
-    class r_ extends Oe {
+    class r_ extends ProtobufMessageBase {
         startStepIndex = 0;
         checkpointIndex = 0;
         stepsCoveredByCheckpoint = [];
@@ -26508,7 +26508,7 @@
             return Mt.util.equals(r_, e, t)
         }
     }
-    class s_ extends Oe {
+    class s_ extends ProtobufMessageBase {
         source = Om.UNSPECIFIED;
         argumentsOrder = [];
         constructor(e) {
@@ -26608,7 +26608,7 @@
             return proto3.util.equals(i_, e, t)
         }
     }
-    class o_ extends Oe {
+    class o_ extends ProtobufMessageBase {
         userErrorMessage = "";
         shortError = "";
         fullError = "";
@@ -26646,7 +26646,7 @@
             return Mt.util.equals(o_, e, t)
         }
     }
-    class m_ extends Oe {
+    class m_ extends ProtobufMessageBase {
         type = Am.UNSPECIFIED;
         status = Jm.UNSPECIFIED;
         asyncLevelOverride = Pm.UNSPECIFIED;
@@ -26864,7 +26864,7 @@
             return Mt.util.equals(m_, e, t)
         }
     }
-    class u_ extends Oe {
+    class u_ extends ProtobufMessageBase {
         workspaceUri = "";
         gitRootUri = "";
         branchName = "";
@@ -26902,7 +26902,7 @@
             return Mt.util.equals(u_, e, t)
         }
     }
-    class c_ extends Oe {
+    class c_ extends ProtobufMessageBase {
         maxGeneratorInvocations = 0;
         terminalStepTypes = [];
         constructor(e) {
@@ -26947,7 +26947,7 @@
             return Mt.util.equals(c_, e, t)
         }
     }
-    class l_ extends Oe {
+    class l_ extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -26982,7 +26982,7 @@
             return Mt.util.equals(l_, e, t)
         }
     }
-    class d_ extends Oe {
+    class d_ extends ProtobufMessageBase {
         clusterPath = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -27020,7 +27020,7 @@
             return Mt.util.equals(d_, e, t)
         }
     }
-    class __ extends Oe {
+    class __ extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -27046,7 +27046,7 @@
             return Mt.util.equals(__, e, t)
         }
     }
-    class f_ extends Oe {
+    class f_ extends ProtobufMessageBase {
         clusterPath = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -27084,7 +27084,7 @@
             return Mt.util.equals(f_, e, t)
         }
     }
-    class E_ extends Oe {
+    class E_ extends ProtobufMessageBase {
         mQueryModel = Wt.MODEL_UNSPECIFIED;
         maxTokensPerMQuery = 0;
         constructor(e) {
@@ -27121,7 +27121,7 @@
             return Mt.util.equals(E_, e, t)
         }
     }
-    class T_ extends Oe {
+    class T_ extends ProtobufMessageBase {
         disableExtensions = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -27154,7 +27154,7 @@
             return Mt.util.equals(T_, e, t)
         }
     }
-    class p_ extends Oe {
+    class p_ extends ProtobufMessageBase {
         intentModel = Wt.MODEL_UNSPECIFIED;
         maxContextTokens = 0;
         constructor(e) {
@@ -27186,7 +27186,7 @@
             return Mt.util.equals(p_, e, t)
         }
     }
-    class S_ extends Oe {
+    class S_ extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -27221,7 +27221,7 @@
             return Mt.util.equals(S_, e, t)
         }
     }
-    class g_ extends Oe {
+    class g_ extends ProtobufMessageBase {
         plannerTypeConfig = {
             case: void 0
         };
@@ -27309,7 +27309,7 @@
             return Mt.util.equals(g_, e, t)
         }
     }
-    class N_ extends Oe {
+    class N_ extends ProtobufMessageBase {
         identifier = {
             case: void 0
         };
@@ -27350,7 +27350,7 @@
             return Mt.util.equals(N_, e, t)
         }
     }
-    class I_ extends Oe {
+    class I_ extends ProtobufMessageBase {
         confirm = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -27376,7 +27376,7 @@
             return Mt.util.equals(I_, e, t)
         }
     }
-    class y_ extends Oe {
+    class y_ extends ProtobufMessageBase {
         trajectoryId = "";
         stepIndex = 0;
         interaction = {
@@ -27417,7 +27417,7 @@
             return Mt.util.equals(y_, e, t)
         }
     }
-    class w_ extends Oe {
+    class w_ extends ProtobufMessageBase {
         input = 0;
         output = 0;
         constructor(e) {
@@ -27449,7 +27449,7 @@
             return Mt.util.equals(w_, e, t)
         }
     }
-    class C_ extends Oe {
+    class C_ extends ProtobufMessageBase {
         output = {};
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -27479,7 +27479,7 @@
             return Mt.util.equals(C_, e, t)
         }
     }
-    class k_ extends Oe {
+    class k_ extends ProtobufMessageBase {
         userProvided = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -27510,7 +27510,7 @@
             return Mt.util.equals(k_, e, t)
         }
     }
-    class O_ extends Oe {
+    class O_ extends ProtobufMessageBase {
         checkpointIndex = 0;
         includedStepIndices = [];
         userIntent = "";
@@ -27571,7 +27571,7 @@
             return Mt.util.equals(O_, e, t)
         }
     }
-    class P_ extends Oe {
+    class P_ extends ProtobufMessageBase {
         tokenThreshold = 0;
         maxOverheadRatio = 0;
         movingWindowSize = 0;
@@ -27627,7 +27627,7 @@
             return Mt.util.equals(P_, e, t)
         }
     }
-    class J_ extends Oe {
+    class J_ extends ProtobufMessageBase {
         ccis = [];
         numTokensProcessed = 0;
         numItemsScored = 0;
@@ -27671,7 +27671,7 @@
             return Mt.util.equals(J_, e, t)
         }
     }
-    class R_ extends Oe {
+    class R_ extends ProtobufMessageBase {
         boundaryType = Lm.UNSPECIFIED;
         completionId = "";
         intent = "";
@@ -27709,7 +27709,7 @@
             return Mt.util.equals(R_, e, t)
         }
     }
-    class A_ extends Oe {
+    class A_ extends ProtobufMessageBase {
         useFastApply = !1;
         acknowledgementType = xm.UNSPECIFIED;
         constructor(e) {
@@ -27756,7 +27756,7 @@
             return Mt.util.equals(A_, e, t)
         }
     }
-    class L_ extends Oe {
+    class L_ extends ProtobufMessageBase {
         codeInstruction = "";
         markdownLanguage = "";
         constructor(e) {
@@ -27798,7 +27798,7 @@
             return Mt.util.equals(L_, e, t)
         }
     }
-    class x_ extends Oe {
+    class x_ extends ProtobufMessageBase {
         commitMessage = "";
         commitHash = "";
         constructor(e) {
@@ -27835,7 +27835,7 @@
             return Mt.util.equals(x_, e, t)
         }
     }
-    class h_ extends Oe {
+    class h_ extends ProtobufMessageBase {
         relativePath = "";
         lineNumber = 0;
         content = "";
@@ -27873,7 +27873,7 @@
             return Mt.util.equals(h_, e, t)
         }
     }
-    class D_ extends Oe {
+    class D_ extends ProtobufMessageBase {
         informCciList = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -27981,7 +27981,7 @@
             return proto3.util.equals(B_, e, t)
         }
     }
-    class F_ extends Oe {
+    class F_ extends ProtobufMessageBase {
         searchDirectory = "";
         query = "";
         matchPerLine = !1;
@@ -28063,7 +28063,7 @@
             return Mt.util.equals(F_, e, t)
         }
     }
-    class M_ extends Oe {
+    class M_ extends ProtobufMessageBase {
         relativePath = "";
         absoluteUri = "";
         type = Dm.UNSPECIFIED;
@@ -28113,7 +28113,7 @@
             return Mt.util.equals(M_, e, t)
         }
     }
-    class q_ extends Oe {
+    class q_ extends ProtobufMessageBase {
         searchDirectory = "";
         pattern = "";
         includes = [];
@@ -28202,7 +28202,7 @@
             return Mt.util.equals(q_, e, t)
         }
     }
-    class b_ extends Oe {
+    class b_ extends ProtobufMessageBase {
         absolutePathUri = "";
         startLine = 0;
         endLine = 0;
@@ -28246,7 +28246,7 @@
             return Mt.util.equals(b_, e, t)
         }
     }
-    class G_ extends Oe {
+    class G_ extends ProtobufMessageBase {
         name = "";
         isDir = !1;
         numChildren = 0;
@@ -28290,7 +28290,7 @@
             return Mt.util.equals(G_, e, t)
         }
     }
-    class v_ extends Oe {
+    class v_ extends ProtobufMessageBase {
         directoryPathUri = "";
         children = [];
         results = [];
@@ -28336,7 +28336,7 @@
             return Mt.util.equals(v_, e, t)
         }
     }
-    class H_ extends Oe {
+    class H_ extends ProtobufMessageBase {
         message = "";
         path = "";
         line = 0;
@@ -28380,7 +28380,7 @@
             return Mt.util.equals(H_, e, t)
         }
     }
-    class X_ extends Oe {
+    class X_ extends ProtobufMessageBase {
         query = "";
         inputClusters = [];
         repoName = "";
@@ -28433,7 +28433,7 @@
             return Mt.util.equals(X_, e, t)
         }
     }
-    class V_ extends Oe {
+    class V_ extends ProtobufMessageBase {
         clusters = [];
         repoName = "";
         constructor(e) {
@@ -28466,7 +28466,7 @@
             return Mt.util.equals(V_, e, t)
         }
     }
-    class Y_ extends Oe {
+    class Y_ extends ProtobufMessageBase {
         tool = Um.UNSPECIFIED;
         inputSpec = "";
         options = {};
@@ -28566,7 +28566,7 @@
             return proto3.util.equals(K_, e, t)
         }
     }
-    class W_ extends Oe {
+    class W_ extends ProtobufMessageBase {
         query = "";
         userResponse = "";
         items = [];
@@ -28647,7 +28647,7 @@
             return proto3.util.equals(z_, e, t)
         }
     }
-    class j_ extends Oe {
+    class j_ extends ProtobufMessageBase {
         response = "";
         knowledgeBaseItems = [];
         constructor(e) {
@@ -28680,7 +28680,7 @@
             return Mt.util.equals(j_, e, t)
         }
     }
-    class $_ extends Oe {
+    class $_ extends ProtobufMessageBase {
         absolutePath = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -28711,7 +28711,7 @@
             return Mt.util.equals($_, e, t)
         }
     }
-    class Q_ extends Oe {
+    class Q_ extends ProtobufMessageBase {
         absoluteUri = "";
         nodeName = "";
         constructor(e) {
@@ -28748,7 +28748,7 @@
             return Mt.util.equals(Q_, e, t)
         }
     }
-    class Z_ extends Oe {
+    class Z_ extends ProtobufMessageBase {
         targetFileUri = "";
         codeContent = [];
         fileCreated = !1;
@@ -28798,7 +28798,7 @@
             return Mt.util.equals(Z_, e, t)
         }
     }
-    class ef extends Oe {
+    class ef extends ProtobufMessageBase {
         queries = [];
         connectorTypes = [];
         knowledgeBaseGroups = [];
@@ -28844,7 +28844,7 @@
             return Mt.util.equals(ef, e, t)
         }
     }
-    class tf extends Oe {
+    class tf extends ProtobufMessageBase {
         suggestions = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -28871,7 +28871,7 @@
             return Mt.util.equals(tf, e, t)
         }
     }
-    class nf extends Oe {
+    class nf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -28896,7 +28896,7 @@
             return Mt.util.equals(nf, e, t)
         }
     }
-    class af extends Oe {
+    class af extends ProtobufMessageBase {
         clusterId = "";
         query = "";
         ccis = [];
@@ -28940,7 +28940,7 @@
             return Mt.util.equals(af, e, t)
         }
     }
-    class rf extends Oe {
+    class rf extends ProtobufMessageBase {
         command = "";
         cwd = "";
         args = [];
@@ -29021,7 +29021,7 @@
             return Mt.util.equals(rf, e, t)
         }
     }
-    class sf extends Oe {
+    class sf extends ProtobufMessageBase {
         absoluteUri = "";
         relatedFileAbsoluteUris = [];
         scores = [];
@@ -29196,7 +29196,7 @@
             no: 4,
             name: "EDITOR_THEME_TYPE_HIGH_CONTRAST_LIGHT"
         }]);
-    class mf extends Oe {
+    class mf extends ProtobufMessageBase {
         planId = "";
         summary = [];
         constructor(e) {
@@ -29229,7 +29229,7 @@
             return Mt.util.equals(mf, e, t)
         }
     }
-    class uf extends Oe {
+    class uf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29249,7 +29249,7 @@
             return Mt.util.equals(uf, e, t)
         }
     }
-    class cf extends Oe {
+    class cf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29269,7 +29269,7 @@
             return Mt.util.equals(cf, e, t)
         }
     }
-    class lf extends Oe {
+    class lf extends ProtobufMessageBase {
         plans = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -29296,7 +29296,7 @@
             return Mt.util.equals(lf, e, t)
         }
     }
-    class df extends Oe {
+    class df extends ProtobufMessageBase {
         cortexId = "";
         feedback = "";
         rating = 0;
@@ -29339,7 +29339,7 @@
             return Mt.util.equals(df, e, t)
         }
     }
-    class _f extends Oe {
+    class _f extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29359,7 +29359,7 @@
             return Mt.util.equals(_f, e, t)
         }
     }
-    class ff extends Oe {
+    class ff extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29399,7 +29399,7 @@
             return Mt.util.equals(ff, e, t)
         }
     }
-    class Ef extends Oe {
+    class Ef extends ProtobufMessageBase {
         cortexId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -29425,7 +29425,7 @@
             return Mt.util.equals(Ef, e, t)
         }
     }
-    class Tf extends Oe {
+    class Tf extends ProtobufMessageBase {
         cortexId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -29451,7 +29451,7 @@
             return Mt.util.equals(Tf, e, t)
         }
     }
-    class pf extends Oe {
+    class pf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29476,7 +29476,7 @@
             return Mt.util.equals(pf, e, t)
         }
     }
-    class Sf extends Oe {
+    class Sf extends ProtobufMessageBase {
         planId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -29507,7 +29507,7 @@
             return Mt.util.equals(Sf, e, t)
         }
     }
-    class gf extends Oe {
+    class gf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29527,7 +29527,7 @@
             return Mt.util.equals(gf, e, t)
         }
     }
-    class Nf extends Oe {
+    class Nf extends ProtobufMessageBase {
         planId = "";
         feedback = "";
         constructor(e) {
@@ -29559,7 +29559,7 @@
             return Mt.util.equals(Nf, e, t)
         }
     }
-    class If extends Oe {
+    class If extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29579,7 +29579,7 @@
             return Mt.util.equals(If, e, t)
         }
     }
-    class yf extends Oe {
+    class yf extends ProtobufMessageBase {
         planId = "";
         actionIndex = 0;
         completionId = "";
@@ -29627,7 +29627,7 @@
             return Mt.util.equals(yf, e, t)
         }
     }
-    class wf extends Oe {
+    class wf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29647,7 +29647,7 @@
             return Mt.util.equals(wf, e, t)
         }
     }
-    class Cf extends Oe {
+    class Cf extends ProtobufMessageBase {
         planId = "";
         actionIndex = 0;
         completionId = "";
@@ -29701,7 +29701,7 @@
             return Mt.util.equals(Cf, e, t)
         }
     }
-    class kf extends Oe {
+    class kf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29726,7 +29726,7 @@
             return Mt.util.equals(kf, e, t)
         }
     }
-    class Of extends Oe {
+    class Of extends ProtobufMessageBase {
         planId = "";
         actionIndex = 0;
         constructor(e) {
@@ -29773,7 +29773,7 @@
             return Mt.util.equals(Of, e, t)
         }
     }
-    class Pf extends Oe {
+    class Pf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -29793,7 +29793,7 @@
             return Mt.util.equals(Pf, e, t)
         }
     }
-    class Jf extends Oe {
+    class Jf extends ProtobufMessageBase {
         requestedModelId = Wt.MODEL_UNSPECIFIED;
         selectionStartLine = Fe.zero;
         selectionEndLine = Fe.zero;
@@ -29898,7 +29898,7 @@
             return Mt.util.equals(Jf, e, t)
         }
     }
-    class Rf extends Oe {
+    class Rf extends ProtobufMessageBase {
         completionId = "";
         promptId = "";
         selectionStartLine = Fe.zero;
@@ -29973,7 +29973,7 @@
             return Mt.util.equals(Rf, e, t)
         }
     }
-    class Af extends Oe {
+    class Af extends ProtobufMessageBase {
         threshold = 0;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -29999,7 +29999,7 @@
             return Mt.util.equals(Af, e, t)
         }
     }
-    class GetCompletionsRequest extends Oe {
+    class GetCompletionsRequest extends ProtobufMessageBase {
         otherDocuments = [];
         disableCache = !1;
         oracleItems = [];
@@ -30081,7 +30081,7 @@
             return Mt.util.equals(GetCompletionsRequest, e, t)
         }
     }
-    class GetCompletionsResponse extends Oe {
+    class GetCompletionsResponse extends ProtobufMessageBase {
         completionItems = [];
         filteredCompletionItems = [];
         modelTag = "";
@@ -30149,7 +30149,7 @@
             return Mt.util.equals(GetCompletionsResponse, e, t)
         }
     }
-    class AcceptCompletionRequest extends Oe {
+    class AcceptCompletionRequest extends ProtobufMessageBase {
         completionId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30180,7 +30180,7 @@
             return Mt.util.equals(AcceptCompletionRequest, e, t)
         }
     }
-    class Df extends Oe {
+    class Df extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30200,7 +30200,7 @@
             return Mt.util.equals(Df, e, t)
         }
     }
-    class Uf extends Oe {
+    class Uf extends ProtobufMessageBase {
         isAccepted = !1;
         feedbackDelayMs = Fe.zero;
         completionId = "";
@@ -30276,7 +30276,7 @@
             return Mt.util.equals(Uf, e, t)
         }
     }
-    class Bf extends Oe {
+    class Bf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30296,7 +30296,7 @@
             return Mt.util.equals(Bf, e, t)
         }
     }
-    class Ff extends Oe {
+    class Ff extends ProtobufMessageBase {
         previousErrorTraces = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30333,7 +30333,7 @@
             return Mt.util.equals(Ff, e, t)
         }
     }
-    class Mf extends Oe {
+    class Mf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30358,7 +30358,7 @@
             return Mt.util.equals(Mf, e, t)
         }
     }
-    class qf extends Oe {
+    class qf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30383,7 +30383,7 @@
             return Mt.util.equals(qf, e, t)
         }
     }
-    class bf extends Oe {
+    class bf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30408,7 +30408,7 @@
             return Mt.util.equals(bf, e, t)
         }
     }
-    class Gf extends Oe {
+    class Gf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30428,7 +30428,7 @@
             return Mt.util.equals(Gf, e, t)
         }
     }
-    class vf extends Oe {
+    class vf extends ProtobufMessageBase {
         models = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30455,7 +30455,7 @@
             return Mt.util.equals(vf, e, t)
         }
     }
-    class Hf extends Oe {
+    class Hf extends ProtobufMessageBase {
         apiKey = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30481,7 +30481,7 @@
             return Mt.util.equals(Hf, e, t)
         }
     }
-    class Xf extends Oe {
+    class Xf extends ProtobufMessageBase {
         lspPort = 0;
         chatWebServerPort = 0;
         chatClientPort = 0;
@@ -30519,7 +30519,7 @@
             return Mt.util.equals(Xf, e, t)
         }
     }
-    class Vf extends Oe {
+    class Vf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30539,7 +30539,7 @@
             return Mt.util.equals(Vf, e, t)
         }
     }
-    class Yf extends Oe {
+    class Yf extends ProtobufMessageBase {
         authToken = "";
         uuid = "";
         constructor(e) {
@@ -30571,7 +30571,7 @@
             return Mt.util.equals(Yf, e, t)
         }
     }
-    class Kf extends Oe {
+    class Kf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30601,7 +30601,7 @@
             return Mt.util.equals(Kf, e, t)
         }
     }
-    class Wf extends Oe {
+    class Wf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30621,7 +30621,7 @@
             return Mt.util.equals(Wf, e, t)
         }
     }
-    class zf extends Oe {
+    class zf extends ProtobufMessageBase {
         requestId = Fe.zero;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30652,7 +30652,7 @@
             return Mt.util.equals(zf, e, t)
         }
     }
-    class jf extends Oe {
+    class jf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30672,7 +30672,7 @@
             return Mt.util.equals(jf, e, t)
         }
     }
-    class $f extends Oe {
+    class $f extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30702,7 +30702,7 @@
             return Mt.util.equals($f, e, t)
         }
     }
-    class Qf extends Oe {
+    class Qf extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30727,7 +30727,7 @@
             return Mt.util.equals(Qf, e, t)
         }
     }
-    class Zf extends Oe {
+    class Zf extends ProtobufMessageBase {
         firebaseIdToken = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30754,7 +30754,7 @@
             return Mt.util.equals(Zf, e, t)
         }
     }
-    class eE extends Oe {
+    class eE extends ProtobufMessageBase {
         apiKey = "";
         name = "";
         constructor(e) {
@@ -30787,7 +30787,7 @@
             return Mt.util.equals(eE, e, t)
         }
     }
-    class tE extends Oe {
+    class tE extends ProtobufMessageBase {
         query = "";
         numResults = 0;
         numClusters = 0;
@@ -30830,7 +30830,7 @@
             return Mt.util.equals(tE, e, t)
         }
     }
-    class nE extends Oe {
+    class nE extends ProtobufMessageBase {
         clusters = [];
         searchId = "";
         constructor(e) {
@@ -30863,7 +30863,7 @@
             return Mt.util.equals(nE, e, t)
         }
     }
-    class aE extends Oe {
+    class aE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30883,7 +30883,7 @@
             return Mt.util.equals(aE, e, t)
         }
     }
-    class rE extends Oe {
+    class rE extends ProtobufMessageBase {
         languages = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30910,7 +30910,7 @@
             return Mt.util.equals(rE, e, t)
         }
     }
-    class sE extends Oe {
+    class sE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -30930,7 +30930,7 @@
             return Mt.util.equals(sE, e, t)
         }
     }
-    class iE extends Oe {
+    class iE extends ProtobufMessageBase {
         progressBars = {};
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30960,7 +30960,7 @@
             return Mt.util.equals(iE, e, t)
         }
     }
-    class oE extends Oe {
+    class oE extends ProtobufMessageBase {
         resultId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -30991,7 +30991,7 @@
             return Mt.util.equals(oE, e, t)
         }
     }
-    class mE extends Oe {
+    class mE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31011,7 +31011,7 @@
             return Mt.util.equals(mE, e, t)
         }
     }
-    class uE extends Oe {
+    class uE extends ProtobufMessageBase {
         clusterSearchId = "";
         exactSearchId = "";
         searchResultIds = [];
@@ -31055,7 +31055,7 @@
             return Mt.util.equals(uE, e, t)
         }
     }
-    class cE extends Oe {
+    class cE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31129,7 +31129,7 @@
             return proto3.util.equals(dE, e, t)
         }
     }
-    class _E extends Oe {
+    class _E extends ProtobufMessageBase {
         openDocumentFilepathsMigrateMeToUri = [];
         openDocumentUris = [];
         otherDocuments = [];
@@ -31205,7 +31205,7 @@
             return Mt.util.equals(_E, e, t)
         }
     }
-    class fE extends Oe {
+    class fE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31225,7 +31225,7 @@
             return Mt.util.equals(fE, e, t)
         }
     }
-    class EE extends Oe {
+    class EE extends ProtobufMessageBase {
         query = "";
         fuzzyMatch = !1;
         allowedTypes = [];
@@ -31276,7 +31276,7 @@
             return Mt.util.equals(EE, e, t)
         }
     }
-    class TE extends Oe {
+    class TE extends ProtobufMessageBase {
         matchedItems = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -31303,7 +31303,7 @@
             return Mt.util.equals(TE, e, t)
         }
     }
-    class pE extends Oe {
+    class pE extends ProtobufMessageBase {
         query = "";
         fuzzyMatch = !1;
         maxItems = 0;
@@ -31352,7 +31352,7 @@
             return Mt.util.equals(pE, e, t)
         }
     }
-    class SE extends Oe {
+    class SE extends ProtobufMessageBase {
         matchedRepositories = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -31379,7 +31379,7 @@
             return Mt.util.equals(SE, e, t)
         }
     }
-    class gE extends Oe {
+    class gE extends ProtobufMessageBase {
         numTokensInIntent = 0;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -31410,7 +31410,7 @@
             return Mt.util.equals(gE, e, t)
         }
     }
-    class NE extends Oe {
+    class NE extends ProtobufMessageBase {
         chatMessage = "";
         requestedModelId = Wt.MODEL_UNSPECIFIED;
         constructor(e) {
@@ -31442,7 +31442,7 @@
             return Mt.util.equals(NE, e, t)
         }
     }
-    class IE extends Oe {
+    class IE extends ProtobufMessageBase {
         tokenCount = 0;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -31468,7 +31468,7 @@
             return Mt.util.equals(IE, e, t)
         }
     }
-    class yE extends Oe {
+    class yE extends ProtobufMessageBase {
         messageId = "";
         feedback = om.FEEDBACK_TYPE_UNSPECIFIED;
         reason = "";
@@ -31516,7 +31516,7 @@
             return Mt.util.equals(yE, e, t)
         }
     }
-    class wE extends Oe {
+    class wE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31536,7 +31536,7 @@
             return Mt.util.equals(wE, e, t)
         }
     }
-    class CE extends Oe {
+    class CE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31571,7 +31571,7 @@
             return Mt.util.equals(CE, e, t)
         }
     }
-    class kE extends Oe {
+    class kE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31591,7 +31591,7 @@
             return Mt.util.equals(kE, e, t)
         }
     }
-    class OE extends Oe {
+    class OE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31616,7 +31616,7 @@
             return Mt.util.equals(OE, e, t)
         }
     }
-    class PE extends Oe {
+    class PE extends ProtobufMessageBase {
         experiments = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -31643,7 +31643,7 @@
             return Mt.util.equals(PE, e, t)
         }
     }
-    class JE extends Oe {
+    class JE extends ProtobufMessageBase {
         timeZone = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -31684,7 +31684,7 @@
             return Mt.util.equals(JE, e, t)
         }
     }
-    class RE extends Oe {
+    class RE extends ProtobufMessageBase {
         completionsByDay = [];
         completionsByLanguage = [];
         chatsByModel = [];
@@ -31730,7 +31730,7 @@
             return Mt.util.equals(RE, e, t)
         }
     }
-    class AE extends Oe {
+    class AE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31755,7 +31755,7 @@
             return Mt.util.equals(AE, e, t)
         }
     }
-    class LE extends Oe {
+    class LE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31785,7 +31785,7 @@
             return Mt.util.equals(LE, e, t)
         }
     }
-    class xE extends Oe {
+    class xE extends ProtobufMessageBase {
         apiKey = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -31811,7 +31811,7 @@
             return Mt.util.equals(xE, e, t)
         }
     }
-    class hE extends Oe {
+    class hE extends ProtobufMessageBase {
         profilePictureUrl = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -31837,7 +31837,7 @@
             return Mt.util.equals(hE, e, t)
         }
     }
-    class DE extends Oe {
+    class DE extends ProtobufMessageBase {
         promptId = "";
         code = "";
         timeoutSec = Fe.zero;
@@ -31904,7 +31904,7 @@
             return Mt.util.equals(DE, e, t)
         }
     }
-    class UE extends Oe {
+    class UE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31924,7 +31924,7 @@
             return Mt.util.equals(UE, e, t)
         }
     }
-    class BE extends Oe {
+    class BE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31954,7 +31954,7 @@
             return Mt.util.equals(BE, e, t)
         }
     }
-    class FE extends Oe {
+    class FE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -31974,7 +31974,7 @@
             return Mt.util.equals(FE, e, t)
         }
     }
-    class ME extends Oe {
+    class ME extends ProtobufMessageBase {
         version = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -32000,7 +32000,7 @@
             return Mt.util.equals(ME, e, t)
         }
     }
-    class qE extends Oe {
+    class qE extends ProtobufMessageBase {
         path = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -32026,7 +32026,7 @@
             return Mt.util.equals(qE, e, t)
         }
     }
-    class bE extends Oe {
+    class bE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -32051,7 +32051,7 @@
             return Mt.util.equals(bE, e, t)
         }
     }
-    class GE extends Oe {
+    class GE extends ProtobufMessageBase {
         functionCaptures = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -32078,7 +32078,7 @@
             return Mt.util.equals(GE, e, t)
         }
     }
-    class vE extends Oe {
+    class vE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -32103,7 +32103,7 @@
             return Mt.util.equals(vE, e, t)
         }
     }
-    class HE extends Oe {
+    class HE extends ProtobufMessageBase {
         classCaptures = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -32130,7 +32130,7 @@
             return Mt.util.equals(HE, e, t)
         }
     }
-    class XE extends Oe {
+    class XE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -32150,7 +32150,7 @@
             return Mt.util.equals(XE, e, t)
         }
     }
-    class VE extends Oe {
+    class VE extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -32170,7 +32170,7 @@
             return Mt.util.equals(VE, e, t)
         }
     }
-    class YE extends Oe {
+    class YE extends ProtobufMessageBase {
         state = Fm.UNSPECIFIED;
         message = "";
         constructor(e) {
@@ -32202,7 +32202,7 @@
             return Mt.util.equals(YE, e, t)
         }
     }
-    class KE extends Oe {
+    class KE extends ProtobufMessageBase {
         promptId = "";
         typingAsSuggestedPromptSuffix = "";
         completionType = mn.UNSPECIFIED;
@@ -32245,7 +32245,7 @@
             return Mt.util.equals(KE, e, t)
         }
     }
-    class WE extends Oe {
+    class WE extends ProtobufMessageBase {
         clientLatencyMs = Fe.zero;
         promptLatencyMs = Fe.zero;
         promptStageLatencies = [];
@@ -32302,7 +32302,7 @@
             return Mt.util.equals(WE, e, t)
         }
     }
-    class zE extends Oe {
+    class zE extends ProtobufMessageBase {
         text = "";
         deltaCursorOffset = Fe.zero;
         constructor(e) {
@@ -32334,7 +32334,7 @@
             return Mt.util.equals(zE, e, t)
         }
     }
-    class jE extends Oe {
+    class jE extends ProtobufMessageBase {
         text = "";
         offset = Fe.zero;
         type = Mm.UNSPECIFIED;
@@ -32384,7 +32384,7 @@
             return Mt.util.equals(jE, e, t)
         }
     }
-    class $E extends Oe {
+    class $E extends ProtobufMessageBase {
         source = on.UNSPECIFIED;
         completionParts = [];
         constructor(e) {
@@ -32432,7 +32432,7 @@
             return Mt.util.equals($E, e, t)
         }
     }
-    class QE extends Oe {
+    class QE extends ProtobufMessageBase {
         embeddingId = Fe.zero;
         absolutePathMigrateMeToUri = "";
         absoluteUri = "";
@@ -32493,7 +32493,7 @@
             return Mt.util.equals(QE, e, t)
         }
     }
-    class ZE extends Oe {
+    class ZE extends ProtobufMessageBase {
         searchResults = [];
         representativePath = "";
         description = "";
@@ -32550,7 +32550,7 @@
             return Mt.util.equals(ZE, e, t)
         }
     }
-    class eT extends Oe {
+    class eT extends ProtobufMessageBase {
         progress = 0;
         text = "";
         hidden = !1;
@@ -32742,7 +32742,7 @@
             return proto3.util.equals(nT, e, t)
         }
     }
-    class aT extends Oe {
+    class aT extends ProtobufMessageBase {
         matchLines = 0;
         charsPerLine = 0;
         constructor(e) {
@@ -32824,7 +32824,7 @@
             return proto3.util.equals(rT, e, t)
         }
     }
-    class sT extends Oe {
+    class sT extends ProtobufMessageBase {
         text = "";
         ranges = [];
         constructor(e) {
@@ -32857,7 +32857,7 @@
             return Mt.util.equals(sT, e, t)
         }
     }
-    class iT extends Oe {
+    class iT extends ProtobufMessageBase {
         workspace = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -32883,7 +32883,7 @@
             return Mt.util.equals(iT, e, t)
         }
     }
-    class oT extends Oe {
+    class oT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -32903,7 +32903,7 @@
             return Mt.util.equals(oT, e, t)
         }
     }
-    class mT extends Oe {
+    class mT extends ProtobufMessageBase {
         workspace = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -32929,7 +32929,7 @@
             return Mt.util.equals(mT, e, t)
         }
     }
-    class uT extends Oe {
+    class uT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -32949,7 +32949,7 @@
             return Mt.util.equals(uT, e, t)
         }
     }
-    class cT extends Oe {
+    class cT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -32969,7 +32969,7 @@
             return Mt.util.equals(cT, e, t)
         }
     }
-    class lT extends Oe {
+    class lT extends ProtobufMessageBase {
         repoRoot = "";
         numAdditions = Fe.zero;
         numDeletions = Fe.zero;
@@ -33014,7 +33014,7 @@
             return Mt.util.equals(lT, e, t)
         }
     }
-    class dT extends Oe {
+    class dT extends ProtobufMessageBase {
         workspaceEdits = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -33041,7 +33041,7 @@
             return Mt.util.equals(dT, e, t)
         }
     }
-    class _T extends Oe {
+    class _T extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33061,7 +33061,7 @@
             return Mt.util.equals(_T, e, t)
         }
     }
-    class fT extends Oe {
+    class fT extends ProtobufMessageBase {
         workspaceUri = "";
         gitRootUri = "";
         constructor(e) {
@@ -33093,7 +33093,7 @@
             return Mt.util.equals(fT, e, t)
         }
     }
-    class ET extends Oe {
+    class ET extends ProtobufMessageBase {
         homeDirPath = "";
         workspaceInfos = [];
         constructor(e) {
@@ -33126,7 +33126,7 @@
             return Mt.util.equals(ET, e, t)
         }
     }
-    class TT extends Oe {
+    class TT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33151,7 +33151,7 @@
             return Mt.util.equals(TT, e, t)
         }
     }
-    class pT extends Oe {
+    class pT extends ProtobufMessageBase {
         repoRoot = "";
         commitMessageSummary = "";
         commitMessageDescription = "";
@@ -33203,7 +33203,7 @@
             return Mt.util.equals(pT, e, t)
         }
     }
-    class ST extends Oe {
+    class ST extends ProtobufMessageBase {
         commitMessages = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -33230,7 +33230,7 @@
             return Mt.util.equals(ST, e, t)
         }
     }
-    class gT extends Oe {
+    class gT extends ProtobufMessageBase {
         repoRoot = "";
         branchName = "";
         commitHash = "";
@@ -33302,7 +33302,7 @@
             return Mt.util.equals(gT, e, t)
         }
     }
-    class NT extends Oe {
+    class NT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33322,7 +33322,7 @@
             return Mt.util.equals(NT, e, t)
         }
     }
-    class IT extends Oe {
+    class IT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33342,7 +33342,7 @@
             return Mt.util.equals(IT, e, t)
         }
     }
-    class yT extends Oe {
+    class yT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33367,7 +33367,7 @@
             return Mt.util.equals(yT, e, t)
         }
     }
-    class wT extends Oe {
+    class wT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33392,7 +33392,7 @@
             return Mt.util.equals(wT, e, t)
         }
     }
-    class CT extends Oe {
+    class CT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33417,7 +33417,7 @@
             return Mt.util.equals(CT, e, t)
         }
     }
-    class kT extends Oe {
+    class kT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33437,7 +33437,7 @@
             return Mt.util.equals(kT, e, t)
         }
     }
-    class OT extends Oe {
+    class OT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33462,7 +33462,7 @@
             return Mt.util.equals(OT, e, t)
         }
     }
-    class PT extends Oe {
+    class PT extends ProtobufMessageBase {
         source = Ln.UNSPECIFIED;
         startOffset = Fe.zero;
         endOffset = Fe.zero;
@@ -33587,7 +33587,7 @@
             return proto3.util.equals(JT, e, t)
         }
     }
-    class RT extends Oe {
+    class RT extends ProtobufMessageBase {
         suggestionSources = [];
         query = "";
         autoExpandFileLimit = Fe.zero;
@@ -33637,7 +33637,7 @@
             return Mt.util.equals(RT, e, t)
         }
     }
-    class AT extends Oe {
+    class AT extends ProtobufMessageBase {
         items = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -33664,7 +33664,7 @@
             return Mt.util.equals(AT, e, t)
         }
     }
-    class LT extends Oe {
+    class LT extends ProtobufMessageBase {
         allowedTypes = [];
         allowedContextTypes = [];
         query = "";
@@ -33733,7 +33733,7 @@
             return Mt.util.equals(LT, e, t)
         }
     }
-    class xT extends Oe {
+    class xT extends ProtobufMessageBase {
         items = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -33760,7 +33760,7 @@
             return Mt.util.equals(xT, e, t)
         }
     }
-    class hT extends Oe {
+    class hT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33805,7 +33805,7 @@
             return Mt.util.equals(hT, e, t)
         }
     }
-    class DT extends Oe {
+    class DT extends ProtobufMessageBase {
         workspaceFolder = "";
         gitRoot = "";
         repoName = "";
@@ -33873,7 +33873,7 @@
             return Mt.util.equals(DT, e, t)
         }
     }
-    class UT extends Oe {
+    class UT extends ProtobufMessageBase {
         localIndexes = [];
         ignoredLocalWorkspaces = [];
         localFilesIndexCapacity = 0;
@@ -33913,7 +33913,7 @@
             return Mt.util.equals(UT, e, t)
         }
     }
-    class BT extends Oe {
+    class BT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33943,7 +33943,7 @@
             return Mt.util.equals(BT, e, t)
         }
     }
-    class FT extends Oe {
+    class FT extends ProtobufMessageBase {
         forceRefresh = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -33974,7 +33974,7 @@
             return Mt.util.equals(FT, e, t)
         }
     }
-    class MT extends Oe {
+    class MT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -33999,7 +33999,7 @@
             return Mt.util.equals(MT, e, t)
         }
     }
-    class qT extends Oe {
+    class qT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34029,7 +34029,7 @@
             return Mt.util.equals(qT, e, t)
         }
     }
-    class bT extends Oe {
+    class bT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34059,7 +34059,7 @@
             return Mt.util.equals(bT, e, t)
         }
     }
-    class GT extends Oe {
+    class GT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34079,7 +34079,7 @@
             return Mt.util.equals(GT, e, t)
         }
     }
-    class vT extends Oe {
+    class vT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34099,7 +34099,7 @@
             return Mt.util.equals(vT, e, t)
         }
     }
-    class HT extends Oe {
+    class HT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34119,7 +34119,7 @@
             return Mt.util.equals(HT, e, t)
         }
     }
-    class XT extends Oe {
+    class XT extends ProtobufMessageBase {
         baseDirectory = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -34145,7 +34145,7 @@
             return Mt.util.equals(XT, e, t)
         }
     }
-    class VT extends Oe {
+    class VT extends ProtobufMessageBase {
         text = "";
         type = bm.UNSPECIFIED;
         constructor(e) {
@@ -34204,7 +34204,7 @@
             return proto3.util.equals(YT, e, t)
         }
     }
-    class KT extends Oe {
+    class KT extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34239,7 +34239,7 @@
             return Mt.util.equals(KT, e, t)
         }
     }
-    class WT extends Oe {
+    class WT extends ProtobufMessageBase {
         data = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -34270,7 +34270,7 @@
             return Mt.util.equals(WT, e, t)
         }
     }
-    class zT extends Oe {
+    class zT extends ProtobufMessageBase {
         fontFamily = "";
         themeName = "";
         lineHeight = 0;
@@ -34331,7 +34331,7 @@
             return Mt.util.equals(zT, e, t)
         }
     }
-    class jT extends Oe {
+    class jT extends ProtobufMessageBase {
         language = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -34357,7 +34357,7 @@
             return Mt.util.equals(jT, e, t)
         }
     }
-    class $T extends Oe {
+    class $T extends ProtobufMessageBase {
         width = 0;
         height = 0;
         dpmm = 0;
@@ -34401,7 +34401,7 @@
             return Mt.util.equals($T, e, t)
         }
     }
-    class QT extends Oe {
+    class QT extends ProtobufMessageBase {
         background = "";
         text = "";
         whitespace = "";
@@ -34505,7 +34505,7 @@
             return Mt.util.equals(QT, e, t)
         }
     }
-    class ZT extends Oe {
+    class ZT extends ProtobufMessageBase {
         actionType = Fn.UNSPECIFIED;
         completed = !1;
         constructor(e) {
@@ -34570,7 +34570,7 @@
             return proto3.util.equals(ep, e, t)
         }
     }
-    class tp extends Oe {
+    class tp extends ProtobufMessageBase {
         clearHistory = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -34596,7 +34596,7 @@
             return Mt.util.equals(tp, e, t)
         }
     }
-    class np extends Oe {
+    class np extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34616,7 +34616,7 @@
             return Mt.util.equals(np, e, t)
         }
     }
-    class ap extends Oe {
+    class ap extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34636,7 +34636,7 @@
             return Mt.util.equals(ap, e, t)
         }
     }
-    class rp extends Oe {
+    class rp extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34656,7 +34656,7 @@
             return Mt.util.equals(rp, e, t)
         }
     }
-    class sp extends Oe {
+    class sp extends ProtobufMessageBase {
         includeAllTrajectories = !1;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -34682,7 +34682,7 @@
             return Mt.util.equals(sp, e, t)
         }
     }
-    class ip extends Oe {
+    class ip extends ProtobufMessageBase {
         mainline = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -34714,7 +34714,7 @@
             return Mt.util.equals(ip, e, t)
         }
     }
-    class op extends Oe {
+    class op extends ProtobufMessageBase {
         mainlineTrajectoryId = "";
         blocking = !1;
         fullRefresh = !1;
@@ -34757,7 +34757,7 @@
             return Mt.util.equals(op, e, t)
         }
     }
-    class mp extends Oe {
+    class mp extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34777,7 +34777,7 @@
             return Mt.util.equals(mp, e, t)
         }
     }
-    class up extends Oe {
+    class up extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34812,7 +34812,7 @@
             return Mt.util.equals(up, e, t)
         }
     }
-    class cp extends Oe {
+    class cp extends ProtobufMessageBase {
         cascadeId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -34895,7 +34895,7 @@
             return proto3.util.equals(dp, e, t)
         }
     }
-    class _p extends Oe {
+    class _p extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34915,7 +34915,7 @@
             return Mt.util.equals(_p, e, t)
         }
     }
-    class fp extends Oe {
+    class fp extends ProtobufMessageBase {
         trajectorySummaries = {};
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -34945,7 +34945,7 @@
             return Mt.util.equals(fp, e, t)
         }
     }
-    class Ep extends Oe {
+    class Ep extends ProtobufMessageBase {
         cascadeId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -34971,7 +34971,7 @@
             return Mt.util.equals(Ep, e, t)
         }
     }
-    class Tp extends Oe {
+    class Tp extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -34991,7 +34991,7 @@
             return Mt.util.equals(Tp, e, t)
         }
     }
-    class pp extends Oe {
+    class pp extends ProtobufMessageBase {
         cascadeId = "";
         stepIndices = [];
         constructor(e) {
@@ -35024,7 +35024,7 @@
             return Mt.util.equals(pp, e, t)
         }
     }
-    class Sp extends Oe {
+    class Sp extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -35044,7 +35044,7 @@
             return Mt.util.equals(Sp, e, t)
         }
     }
-    class gp extends Oe {
+    class gp extends ProtobufMessageBase {
         cascadeId = "";
         items = [];
         constructor(e) {
@@ -35092,7 +35092,7 @@
             return Mt.util.equals(gp, e, t)
         }
     }
-    class Np extends Oe {
+    class Np extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -35112,7 +35112,7 @@
             return Mt.util.equals(Np, e, t)
         }
     }
-    class Ip extends Oe {
+    class Ip extends ProtobufMessageBase {
         cascadeId = "";
         stepIndex = 0;
         constructor(e) {
@@ -35154,7 +35154,7 @@
             return Mt.util.equals(Ip, e, t)
         }
     }
-    class yp extends Oe {
+    class yp extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -35174,7 +35174,7 @@
             return Mt.util.equals(yp, e, t)
         }
     }
-    class wp extends Oe {
+    class wp extends ProtobufMessageBase {
         cascadeId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -35205,7 +35205,7 @@
             return Mt.util.equals(wp, e, t)
         }
     }
-    class Cp extends Oe {
+    class Cp extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -35225,7 +35225,7 @@
             return Mt.util.equals(Cp, e, t)
         }
     }
-    class kp extends Oe {
+    class kp extends ProtobufMessageBase {
         cascadeId = "";
         absoluteUri = [];
         accept = !1;
@@ -35264,7 +35264,7 @@
             return Mt.util.equals(kp, e, t)
         }
     }
-    class Op extends Oe {
+    class Op extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -35284,7 +35284,7 @@
             return Mt.util.equals(Op, e, t)
         }
     }
-    class Pp extends Oe {
+    class Pp extends ProtobufMessageBase {
         cascadeId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -35310,7 +35310,7 @@
             return Mt.util.equals(Pp, e, t)
         }
     }
-    class Jp extends Oe {
+    class Jp extends ProtobufMessageBase {
         states = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -35337,7 +35337,7 @@
             return Mt.util.equals(Jp, e, t)
         }
     }
-    class Rp extends Oe {
+    class Rp extends ProtobufMessageBase {
         uri = "";
         lastAcknowledgedState = "";
         currentState = "";
@@ -35381,7 +35381,7 @@
             return Mt.util.equals(Rp, e, t)
         }
     }
-    class Ap extends Oe {
+    class Ap extends ProtobufMessageBase {
         cascadeId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -35407,7 +35407,7 @@
             return Mt.util.equals(Ap, e, t)
         }
     }
-    class Lp extends Oe {
+    class Lp extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -35427,7 +35427,7 @@
             return Mt.util.equals(Lp, e, t)
         }
     }
-    class xp extends Oe {
+    class xp extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -35452,7 +35452,7 @@
             return Mt.util.equals(xp, e, t)
         }
     }
-    class hp extends Oe {
+    class hp extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -35472,7 +35472,7 @@
             return Mt.util.equals(hp, e, t)
         }
     }
-    class Dp extends Oe {
+    class Dp extends ProtobufMessageBase {
         cascadeId = "";
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -35498,7 +35498,7 @@
             return Mt.util.equals(Dp, e, t)
         }
     }
-    class Up extends Oe {
+    class Up extends ProtobufMessageBase {
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
         }
@@ -35529,7 +35529,7 @@
         no: 2,
         name: "TEST_ENUM_TWO"
     }]);
-    class Bp extends Oe {
+    class Bp extends ProtobufMessageBase {
         protocolVersion = 0;
         id = "";
         constructor(e) {
@@ -35561,7 +35561,7 @@
             return Mt.util.equals(Bp, e, t)
         }
     }
-    class Fp extends Oe {
+    class Fp extends ProtobufMessageBase {
         version = Fe.zero;
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -35592,7 +35592,7 @@
             return Mt.util.equals(Fp, e, t)
         }
     }
-    class Mp extends Oe {
+    class Mp extends ProtobufMessageBase {
         counter = 0;
         values = [];
         constructor(e) {
@@ -35625,7 +35625,7 @@
             return Mt.util.equals(Mp, e, t)
         }
     }
-    class qp extends Oe {
+    class qp extends ProtobufMessageBase {
         fieldDiffs = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -35652,7 +35652,7 @@
             return Mt.util.equals(qp, e, t)
         }
     }
-    class bp extends Oe {
+    class bp extends ProtobufMessageBase {
         fieldNumber = 0;
         diff = {
             case: void 0
@@ -35705,7 +35705,7 @@
             return Mt.util.equals(bp, e, t)
         }
     }
-    class Gp extends Oe {
+    class Gp extends ProtobufMessageBase {
         newLength = 0;
         updateValues = [];
         updateIndices = [];
@@ -35745,7 +35745,7 @@
             return Mt.util.equals(Gp, e, t)
         }
     }
-    class vp extends Oe {
+    class vp extends ProtobufMessageBase {
         mapKeyDiffs = [];
         constructor(e) {
             super(), Mt.util.initPartial(e, this)
@@ -35772,7 +35772,7 @@
             return Mt.util.equals(vp, e, t)
         }
     }
-    class Hp extends Oe {
+    class Hp extends ProtobufMessageBase {
         diff = {
             case: void 0
         };
@@ -35812,7 +35812,7 @@
             return Mt.util.equals(Hp, e, t)
         }
     }
-    class Xp extends Oe {
+    class Xp extends ProtobufMessageBase {
         value = {
             case: void 0
         };
@@ -35937,7 +35937,7 @@
             return Mt.util.equals(Xp, e, t)
         }
     }
-    class Vp extends(null) {
+    class ProtobufMessageType extends(null) {
         singularScalarValue = 0;
         repeatedScalarValue = [];
         repeatedMessageValue = [];
@@ -36011,19 +36011,20 @@
             T: Mt.getEnumType(vm)
         }]));
         static fromBinary(e, t) {
-            return (new Vp).fromBinary(e, t)
+            return (new ProtobufMessageType).fromBinary(e, t)
         }
         static fromJson(e, t) {
-            return (new Vp).fromJson(e, t)
+            return (new ProtobufMessageType).fromJson(e, t)
         }
         static fromJsonString(e, t) {
-            return (new Vp).fromJsonString(e, t)
+            return (new ProtobufMessageType).fromJsonString(e, t)
         }
         static equals(e, t) {
-            return proto3.util.equals(Vp, e, t)
+            return proto3.util.equals(ProtobufMessageType, e, t)
         }
     }
-    const Yp = {
+    // ============================
+    const languageServerServiceDefinition = {
         typeName: "exa.language_server_pb.LanguageServerService",
         methods: {
             getCompletions: {
@@ -36519,7 +36520,7 @@
                         baseUrl: e,
                         useBinaryFormat: !0
                     });
-                    return y(Yp, t)
+                    return y(languageServerServiceDefinition, t)
                 }(t)
             })(), this.clientSettingsPoller = new Wp
         }
@@ -36783,28 +36784,77 @@
         }
     }
     chrome.runtime.onConnectExternal.addListener((port => {
-        connectionClients.set(port.name, new LanguageServerClient(async function() {
-            const userData = await retrieveSyncedData("user"),
+        // Create a new LanguageServerClient for each connection and store it in connectionClients map
+        connectionClients.set(port.name, new LanguageServerClient(
+            async function() {
+                const userData = await retrieveSyncedData("user"),
                 portalUrl = userData?.userPortalUrl;
-            console.log("portalUrl", portalUrl);
+                console.log("portalUrl", portalUrl);
             
             //  "If we don't have a portal URL from the user data, use the default server URL; 
             // otherwise, use the user's portal URL with the language server path appended to it."
-            return void 0 === portalUrl || "" === portalUrl ? DEFAULT_SERVER_URL : `${portalUrl}/_route/language_server` 
-        }(), port.name)), port.onDisconnect.addListener((port => {
+                return (void 0 === portalUrl || "" === portalUrl )
+                    ? DEFAULT_SERVER_URL 
+                    : `${portalUrl}/_route/language_server`; 
+            }(), 
+            port.name
+        )); 
+        
+        // Add disconnect listener
+        port.onDisconnect.addListener((port) => {
             connectionClients.delete(port.name)
-        })), port.onMessage.addListener((async (message, port) => {
+        }); 
+        
+        // Handle messages from client
+        port.onMessage.addListener((async (message, port) => {
             const client = connectionClients.get(port.name);
+
             if ("getCompletions" === message.kind) { // The magic happens here, sending request to server
                 console.log("Parsed completion request:", JSON.parse(message.request)); // printing out the request
-                const completionResponse = await (client?.getCompletions(GetCompletionsRequest.fromJsonString(message.request))),
-                    response = {
-                        kind: "getCompletions",
-                        requestId: message.requestId,
-                        response: completionResponse?.toJsonString()
-                    };
-                port.postMessage(response)
-            } else "acceptCompletion" == message.kind ? await (client?.acceptedLastCompletion(AcceptCompletionRequest.fromJsonString(message.request))) : console.log("Unrecognized message:", message)
+                
+                const completionResponse = await (client?.getCompletions(
+                    GetCompletionsRequest.fromJsonString(message.request)
+                ));
+                const response = {
+                    kind: "getCompletions",
+                    requestId: message.requestId,
+                    response: completionResponse?.toJsonString()
+                };
+                
+                port.postMessage(response);
+            } else if ("acceptCompletion" == message.kind) {
+                await (client?.acceptedLastCompletion(AcceptCompletionRequest.fromJsonString(message.request)))
+            } else {
+                console.log("Unrecognized message:", message)
+            }
         }))
     }))
+
+    // previously
+    // chrome.runtime.onConnectExternal.addListener((port => {
+    //     connectionClients.set(port.name, new LanguageServerClient(async function() {
+    //         const userData = await retrieveSyncedData("user"),
+    //             portalUrl = userData?.userPortalUrl;
+    //         console.log("portalUrl", portalUrl);
+            
+    //         //  "If we don't have a portal URL from the user data, use the default server URL; 
+    //         // otherwise, use the user's portal URL with the language server path appended to it."
+    //         return void 0 === portalUrl || "" === portalUrl ? DEFAULT_SERVER_URL : `${portalUrl}/_route/language_server` 
+    //     }(), port.name)), port.onDisconnect.addListener((port => {
+    //         connectionClients.delete(port.name)
+    //     })), port.onMessage.addListener((async (message, port) => {
+    //         const client = connectionClients.get(port.name);
+    //         if ("getCompletions" === message.kind) { // The magic happens here, sending request to server
+    //             console.log("Parsed completion request:", JSON.parse(message.request)); // printing out the request
+    //             const completionResponse = await (client?.getCompletions(GetCompletionsRequest.fromJsonString(message.request))),
+    //                 response = {
+    //                     kind: "getCompletions",
+    //                     requestId: message.requestId,
+    //                     response: completionResponse?.toJsonString()
+    //                 };
+    //             port.postMessage(response)
+    //         } else "acceptCompletion" == message.kind ? await (client?.acceptedLastCompletion(AcceptCompletionRequest.fromJsonString(message.request))) : console.log("Unrecognized message:", message)
+    //     }))
+    // }))
+    
 })();
